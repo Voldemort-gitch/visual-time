@@ -25,8 +25,8 @@ export default function Home() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden pt-20 border-b border-white/5">
         <motion.div style={{ y: backgroundY }} className="absolute inset-0 z-0 scale-110 transform origin-top">
           <Image 
-            src="/hero_bg.png" 
-            alt="Cinematic luxury wedding event setup" 
+            src="/led_hero.png" 
+            alt="High-resolution professional LED video wall on a corporate stage" 
             fill 
             sizes="100vw"
             priority
@@ -101,7 +101,7 @@ export default function Home() {
               <span className="italic text-brand-secondary">timeless memories.</span>
             </motion.h2>
             <motion.p variants={fadeUpVariant} className="text-brand-text-secondary text-lg leading-relaxed mb-8">
-              At Visual Time, we believe that true luxury lies in the details. Based in Kodambakkam, Chennai, we bring over 26 years of unparalleled expertise in curating bespoke events that reflect your unique narrative. From intimate social gatherings to grand corporate galas and exquisite weddings, our meticulous approach ensures every experience is nothing short of cinematic.
+              At Visual Time, we believe that technical excellence is the foundation of every great event. Based in Kodambakkam, Chennai, we bring over 26 years of unparalleled expertise in providing high-end LED rental solutions and professional corporate production. From large-scale conferences to immersive product launches, our meticulous approach ensures every technical detail is nothing short of cinematic.
             </motion.p>
             <motion.div variants={fadeUpVariant}>
               <Link href="/about" className="inline-flex items-center text-brand-secondary hover:text-white transition-colors duration-300 font-medium tracking-wide uppercase text-sm group">
@@ -180,8 +180,8 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
           {[
-            { quote: "Visual Time didn't just plan our wedding, they directed a masterpiece. Every light, every flower, and every transition felt like it belonged in a movie. Absolutely breathtaking.", author: "Aarti & Vikram", type: "Wedding Celebration" },
-            { quote: "The sheer professionalism and high-end aesthetic they brought to our corporate gala was unmatched in Chennai. They elevated our brand perfectly.", author: "Rajesh S.", type: "Corporate Gala" }
+            { quote: "The LED video walls provided by Visual Time were the highlight of our annual summit. The clarity, brightness, and technical support were world-class. Truly Chennai's best.", author: "Arjun M.", type: "Tech Conference" },
+            { quote: "The sheer professionalism and high-end aesthetic they brought to our product launch was unmatched. They elevated our brand through incredible visual production.", author: "Rajesh S.", type: "Product Launch" }
           ].map((testimonial, idx) => (
              <motion.div 
                key={idx} 
@@ -215,8 +215,8 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           className="relative z-10 max-w-3xl mx-auto"
         >
-          <h2 className="font-serif text-5xl md:text-6xl text-brand-text-primary mb-8 leading-tight">Ready to collaborate on your next luxury event?</h2>
-          <p className="text-brand-text-secondary text-lg mb-12">Let's craft an experience that transcends expectations.</p>
+          <h2 className="font-serif text-5xl md:text-6xl text-brand-text-primary mb-8 leading-tight text-glow">Ready to escalate your technical production?</h2>
+          <p className="text-brand-text-secondary text-lg mb-12">Connect with our team to discuss your LED rental or corporate event needs.</p>
           <Link href="/contact">
             <Button variant="secondary" size="lg">Schedule a Consultation</Button>
           </Link>

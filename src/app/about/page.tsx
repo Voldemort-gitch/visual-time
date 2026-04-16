@@ -77,9 +77,9 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
-              { title: 'Cinematic Vision', desc: 'Lighting, spacing, and flow are meticulously designed to evoke emotion and grandeur.' },
-              { title: 'Uncompromising Quality', desc: 'From the linen thread count to the culinary plating, we accept nothing but perfection.' },
-              { title: 'Personalized Narrative', desc: 'Every event we craft is completely bespoke, designed to reflect your exact personality and goals.' }
+              { title: 'Cinematic Visuals', desc: 'High-resolution LED walls and intelligent lighting designed to captivate your audience.' },
+              { title: 'Technical Precision', desc: 'From pixel-pitch alignment to sound engineering, we accept nothing but technical perfection.' },
+              { title: 'Corporate Narrative', desc: 'Every production is bespoke, engineered to reflect your brand identity and event goals.' }
             ].map((value, idx) => (
               <motion.div 
                 key={value.title}
@@ -115,7 +115,7 @@ export default function AboutPage() {
           transition={{ delay: 0.1 }}
           className="text-brand-text-secondary text-lg mb-12"
         >
-          Contact our team directly to schedule a private consultation. We're ready to transform your vision into an unforgettable reality.
+          Partner with Chennai's premier LED and corporate production firm. We're ready to bring your technical vision to life with cinematic clarity.
         </motion.p>
         <motion.div
            initial={{ opacity: 0, y: 20 }}
