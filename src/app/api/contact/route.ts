@@ -1,6 +1,10 @@
 import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 import { z } from 'zod';
+import { Resend } from 'resend';
+import { InquiryAlertEmail } from '@/components/emails/InquiryAlertEmail';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const formSchema = z.object({
   fullName: z.string().min(2),
@@ -16,9 +20,9 @@ export async function POST(request: Request) {
     const body = await request.json();
     const validatedData = formSchema.parse(body);
 
-    // If Supabase is configured, insert the record
+    // 1. Save to Supabase
     if (supabase) {
-      const { error } = await supabase
+      const { error: dbError } = await supabase
         .from('contact_submissions')
         .insert([
           {
@@ -31,15 +35,32 @@ export async function POST(request: Request) {
           }
         ]);
 
-      if (error) {
-        console.error('Supabase error:', error);
+      if (dbError) {
+        console.error('Supabase error:', dbError);
         return NextResponse.json({ error: 'Failed to save submission' }, { status: 500 });
       }
-    } else {
-      // Mock mode for testing when Supabase isn't configured yet
-      console.log('Mock Submission Data:', validatedData);
-      // Simulate network delay
-      await new Promise(resolve => setTimeout(resolve, 800));
+    }
+
+    // 2. Clear out the Email Notification
+    try {
+      if (process.env.RESEND_API_KEY) {
+        await resend.emails.send({
+          from: 'Visual Time <onboarding@resend.dev>',
+          to: ['enquiry@visualtime.in'],
+          subject: `New Inquiry: ${validatedData.fullName} - ${validatedData.eventType}`,
+          react: InquiryAlertEmail({
+            fullName: validatedData.fullName,
+            email: validatedData.email,
+            phoneNumber: validatedData.phoneNumber,
+            eventType: validatedData.eventType,
+            eventDate: validatedData.eventDate,
+            message: validatedData.message,
+          }),
+        });
+      }
+    } catch (emailError) {
+      // We log but don't fail the primary request so the user stays on the success screen
+      console.error('Email notification error:', emailError);
     }
 
     return NextResponse.json({ success: true, message: 'Inquiry received' }, { status: 200 });
