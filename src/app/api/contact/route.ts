@@ -5,7 +5,6 @@ import { Resend } from 'resend';
 import { InquiryAlertEmail } from '@/components/emails/InquiryAlertEmail';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-
 const formSchema = z.object({
   fullName: z.string().min(2),
   email: z.string().email(),
@@ -41,13 +40,15 @@ export async function POST(request: Request) {
       }
     }
 
-    // 2. Clear out the Email Notification
+    // 2. Technical Email Alert
     try {
       if (process.env.RESEND_API_KEY) {
+        const fromEmail = 'Visual Time <notifications@visualtime.in>';
+        
         await resend.emails.send({
-          from: 'Visual Time <onboarding@resend.dev>',
+          from: fromEmail,
           to: ['enquiry@visualtime.in'],
-          subject: `New Inquiry: ${validatedData.fullName} - ${validatedData.eventType}`,
+          subject: `New Corporate Inquiry: ${validatedData.fullName}`,
           react: InquiryAlertEmail({
             fullName: validatedData.fullName,
             email: validatedData.email,
@@ -59,8 +60,8 @@ export async function POST(request: Request) {
         });
       }
     } catch (emailError) {
-      // We log but don't fail the primary request so the user stays on the success screen
-      console.error('Email notification error:', emailError);
+      console.error('Email alert failure:', emailError);
+      // We don't fail the user request here as it's already saved to DB
     }
 
     return NextResponse.json({ success: true, message: 'Inquiry received' }, { status: 200 });
