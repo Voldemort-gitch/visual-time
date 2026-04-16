@@ -37,10 +37,11 @@ export async function POST(request: Request) {
     // 2. Technical Email Alert
     try {
       if (process.env.RESEND_API_KEY) {
-        const fromEmail = 'Visual Time Inquiry <notifications@visualtime.in>';
+        const fromEmail = 'Visual Time Inquiry <notifications@send.visualtime.in>';
         await resend.emails.send({
           from: fromEmail,
           to: ['enquiry@visualtime.in'],
+          replyTo: validatedData.email,
           subject: `New Corporate Inquiry: ${validatedData.fullName}`,
           react: InquiryAlertEmail({
             fullName: validatedData.fullName,
