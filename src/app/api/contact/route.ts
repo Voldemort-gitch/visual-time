@@ -15,8 +15,10 @@ const formSchema = z.object({
 });
 
 export async function POST(request: Request) {
+  console.log('--- INCOMING CONTACT SUBMISSION ---');
   try {
     const body = await request.json();
+    console.log('Body received:', body.fullName);
     const validatedData = formSchema.parse(body);
 
     // 1. Save to Supabase
