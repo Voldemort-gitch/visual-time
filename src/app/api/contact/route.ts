@@ -43,6 +43,7 @@ export async function POST(request: Request) {
     }
 
     // 2. Technical Email Alert
+    let emailStatus = 'skipped';
     try {
       if (process.env.RESEND_API_KEY) {
         const fromEmail = 'Visual Time <notifications@visualtime.in>';
@@ -63,17 +64,25 @@ export async function POST(request: Request) {
 
         if (resendError) {
           console.error('RESEND ERROR (Logged):', resendError);
+          emailStatus = 'failed';
         } else {
           console.log('RESEND SUCCESS:', data?.id);
+          emailStatus = 'sent';
         }
       } else {
         console.warn('RESEND WARNING: Missing RESEND_API_KEY environment variable. Emails will not be sent.');
+        emailStatus = 'missing_api_key';
       }
     } catch (emailError) {
       console.error('SERVER-SIDE EMAIL FAILURE (Logged):', emailError);
+      emailStatus = 'error';
     }
 
-    return NextResponse.json({ success: true, message: 'Inquiry received' }, { status: 200 });
+    return NextResponse.json({ 
+      success: true, 
+      message: 'Inquiry received',
+      debug: { emailStatus } 
+    }, { status: 200 });
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json({ error: 'Invalid data' }, { status: 400 });
