@@ -5,19 +5,19 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const images = [
-  { id: 1, src: '/hero_bg.png', category: 'Wedding' },
+  { id: 1, src: '/led_service.png', category: 'LED' },
   { id: 2, src: '/corporate_event.png', category: 'Corporate' },
-  { id: 3, src: '/social_event.png', category: 'Social' },
+  { id: 3, src: '/production_service.png', category: 'Production' },
   { id: 4, src: '/corporate_event.png', category: 'Corporate' },
-  { id: 5, src: '/hero_bg.png', category: 'Wedding' },
-  { id: 6, src: '/social_event.png', category: 'Social' },
+  { id: 5, src: '/led_service.png', category: 'LED' },
+  { id: 6, src: '/production_service.png', category: 'Production' },
 ];
 
 export default function GalleryPage() {
   const [filter, setFilter] = useState('All');
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  const categories = ['All', 'Wedding', 'Corporate', 'Social'];
+  const categories = ['All', 'LED', 'Corporate', 'Production'];
 
   const filteredImages = filter === 'All' 
     ? images 

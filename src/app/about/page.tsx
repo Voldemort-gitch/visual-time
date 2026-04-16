@@ -49,10 +49,10 @@ export default function AboutPage() {
             <span className="text-brand-secondary italic">We stage experiences.</span>
           </motion.h2>
           <motion.p variants={fadeUpVariant} className="text-brand-text-secondary text-lg leading-relaxed mb-6">
-            Visual Time was founded in Kodambakkam, Chennai, with a singular vision: to bring cinematic storytelling into the world of luxury event management. Over the past 26 years, what started as a collective of passionate designers and planners has evolved into one of South India's premier boutique event firms.
+            Visual Time was founded in Kodambakkam, Chennai, with a singular vision: to bring cinematic storytelling and technical excellence into the world of LED technology and corporate production. Over the past 26 years, what started as a collective of passionate AV engineers and event designers has evolved into one of South India's premier boutique technical firms.
           </motion.p>
           <motion.p variants={fadeUpVariant} className="text-brand-text-secondary text-lg leading-relaxed mb-8">
-            Our approach isn't about simply checking boxes. It's about lighting, staging, pacing, and atmosphere. We treat your wedding, corporate gala, or private celebration like a high-end film production—ensuring every guest feels like they've stepped into a carefully crafted masterpiece.
+            Our approach isn't about simply providing equipment. It's about lighting, staging, technical precision, and atmosphere. We treat every corporate launch, conference, or LED installation like a high-end film production—ensuring every detail is a carefully crafted masterpiece of technical brilliance.
           </motion.p>
         </motion.div>
         

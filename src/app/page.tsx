@@ -45,10 +45,10 @@ export default function Home() {
           className="relative z-10 text-center max-w-4xl px-6 md:px-12"
         >
           <motion.p variants={fadeUpVariant} className="text-brand-secondary tracking-[0.3em] text-sm md:text-base uppercase mb-6 drop-shadow-lg">
-            Chennai's Premier Event Architects
+            Chennai's Premier LED & Corporate Event Specialists
           </motion.p>
           <motion.h1 variants={fadeUpVariant} className="font-serif text-5xl md:text-7xl lg:text-8xl text-brand-text-primary mb-8 leading-tight drop-shadow-xl">
-            Crafting <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary via-[#F5E1A4] to-[#8A6A22]">Unforgettable</span> Luxury Experiences
+            Pioneering <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary via-[#F5E1A4] to-[#8A6A22]">Cinematic</span> LED & Event Solutions
           </motion.h1>
           <motion.div variants={fadeUpVariant} className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12">
             <Link href="/services">
@@ -129,9 +129,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: "Wedding Planning", desc: "Crafting visually stunning, emotionally resonant wedding celebrations.", img: "/hero_bg.png" },
-              { title: "Corporate Events", desc: "Sophisticated galas, conferences, and brand launches that impress.", img: "/corporate_event.png" },
-              { title: "Private Parties", desc: "Exclusive, intimate gatherings with dramatic flair and luxury details.", img: "/social_event.png" }
+              { title: "LED Screen Rental", desc: "High-resolution indoor and outdoor LED video walls for cinematic clarity.", img: "/led_service.png" },
+              { title: "Corporate Events", desc: "Professional management for conferences, launches, and gala celebrations.", img: "/corporate_event.png" },
+              { title: "Technical Production", desc: "End-to-end AV, lighting, and sound for seamless event execution.", img: "/social_event.png" }
             ].map((service, idx) => (
               <motion.div 
                 key={service.title}

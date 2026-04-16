@@ -11,17 +11,17 @@ export function Footer() {
             VISUAL<span className="text-brand-secondary">TIME</span>
           </Link>
           <p className="text-sm leading-relaxed max-w-sm mb-6">
-            Crafting unforgettable luxury experiences. We specialize in high-end weddings, corporate galas, and premium celebrations in Chennai.
+            Pioneering premium LED rental solutions and corporate event production in Chennai for over 26 years. From high-resolution video walls to seamless corporate management.
           </p>
         </div>
         
         <div>
           <h4 className="font-serif text-brand-text-primary text-lg mb-6 tracking-wider">Services</h4>
           <ul className="space-y-4 text-sm">
-            <li><Link href="/services" className="hover:text-brand-secondary transition-colors">Wedding Planning</Link></li>
+            <li><Link href="/services" className="hover:text-brand-secondary transition-colors">LED Screen Rental</Link></li>
             <li><Link href="/services" className="hover:text-brand-secondary transition-colors">Corporate Events</Link></li>
-            <li><Link href="/services" className="hover:text-brand-secondary transition-colors">Private Parties</Link></li>
-            <li><Link href="/services" className="hover:text-brand-secondary transition-colors">Signature Celebrations</Link></li>
+            <li><Link href="/services" className="hover:text-brand-secondary transition-colors">Product Launches</Link></li>
+            <li><Link href="/services" className="hover:text-brand-secondary transition-colors">Technical Production</Link></li>
           </ul>
         </div>
 

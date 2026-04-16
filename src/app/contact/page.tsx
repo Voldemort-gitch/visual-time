@@ -153,9 +153,9 @@ export default function ContactPage() {
                   <label className="block text-xs font-medium text-brand-text-secondary uppercase mb-2">Event Type</label>
                   <select name="eventType" className={`w-full bg-black/50 border ${errors.eventType ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-secondary transition-colors appearance-none`}>
                     <option value="">Select Event Type</option>
-                    <option value="Wedding">Wedding</option>
+                    <option value="LED Screen Rental">LED Screen Rental</option>
                     <option value="Corporate">Corporate Event</option>
-                    <option value="Private">Private Party</option>
+                    <option value="Launch">Product Launch</option>
                     <option value="Other">Other</option>
                   </select>
                   {errors.eventType && <p className="text-red-500 text-xs mt-1">{errors.eventType}</p>}

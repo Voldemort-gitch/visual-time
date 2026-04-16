@@ -22,8 +22,8 @@ export const metadata: Metadata = {
     icon: '/logo.png',
     apple: '/logo.png',
   },
-  description: "Bringing over 26 years of cinematic storytelling to luxury event management in Chennai. We curate bespoke weddings, corporate galas, and premium celebrations.",
-  keywords: "event management Chennai, luxury wedding planners Tamil Nadu, corporate event planners Chennai, Visual Time events, cinematic events, Kodambakkam event planners",
+  description: "Boutique LED rental and corporate event production in Chennai. Specializing in high-end LED screen rentals, cinematic stage designs, and professional corporate event management.",
+  keywords: "LED screen rental Chennai, corporate event management Chennai, LED video wall rental, Visual Time LED, professional sound and light rental, product launch management Chennai, event production",
   openGraph: {
     title: 'Visual Time | Luxury Event Management',
     description: 'Elevating moments into timeless memories. Premier boutique event firm with over 26 years of experience.',

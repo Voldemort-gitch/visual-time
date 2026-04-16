@@ -8,21 +8,21 @@ import { Button } from '@/components/ui/Button';
 export default function ServicesPage() {
   const services = [
     {
-      title: "Wedding Planning",
-      description: "From intimate ceremonies to grand, multi-day celebrations, we manage every detail to ensure your special day is flawless. Our approach blends tradition with contemporary luxury, focusing on stunning visuals, exquisite floral arrangements, and seamless execution.",
-      features: ["Venue Selection & Styling", "Catering & Menu Design", "Entertainment & Choreography", "Guest Management & Logistics"],
-      image: "/hero_bg.png"
+      title: "LED Screen Rental",
+      description: "As Chennai's premier LED specialists, we provide high-resolution indoor and outdoor LED video walls. Our screens feature peak brightness, exceptional color depth, and seamless mechanical alignment, ensuring your visuals are cinematic and impactful.",
+      features: ["Indoor P2.5 & P3 High-Res", "Outdoor P3.9 Weatherproof", "Creative Curved Configurations", "Live Video Processing"],
+      image: "/led_service.png"
     },
     {
-      title: "Corporate Events",
-      description: "We elevate corporate gatherings into impactful brand experiences. Whether it's an annual gala, a high-stakes product launch, or an exclusive leadership retreat, we design environments that foster connection and impress stakeholders.",
-      features: ["Brand Immersive Environments", "Audio/Visual Production", "Keynote Stage Design", "Executive Transportation"],
+      title: "Corporate Event Management",
+      description: "We transform standard corporate gatherings into immersive brand experiences. From award ceremonies to press conferences, we handle every detail—pacing, staging, and logistics—with the precision your brand deserves.",
+      features: ["Annual General Meetings", "Awards & Recognition Galas", "Press & Media Launches", "Executive Retreats"],
       image: "/corporate_event.png"
     },
     {
-      title: "Private Parties & Social Events",
-      description: "Celebrate life's milestones with unmatched elegance. Anniversaries, milestone birthdays, and exclusive private dinners are transformed into immersive, cinematic experiences that your guests will talk about for years.",
-      features: ["Thematic Concept Design", "Bespoke Invitations", "Mixology & Fine Dining", "Custom Lighting & Effects"],
+      title: "Technical Production",
+      description: "The backbone of any great event is its technical execution. We provide end-to-end AV production, including professional sound reinforcement, stage lighting, and broadcast-quality camera setups.",
+      features: ["Pro Audio Systems", "Intelligent Stage Lighting", "Multi-Cam Broadcast", "Technical Directing"],
       image: "/social_event.png"
     }
   ];
