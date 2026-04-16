@@ -18,6 +18,7 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [debugStatus, setDebugStatus] = useState<string | null>(null);
+  const [debugMessage, setDebugMessage] = useState<string | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -57,6 +58,7 @@ export default function ContactPage() {
       if (res.ok) {
         const json = await res.json();
         setDebugStatus(json.debug?.emailStatus || 'unknown');
+        setDebugMessage(json.debug?.errorMessage || null);
         setSuccess(true);
         (e.target as HTMLFormElement).reset();
       } else {
@@ -134,12 +136,13 @@ export default function ContactPage() {
                   {debugStatus && (
                     <div className="mb-8 p-3 rounded bg-white/5 border border-white/10 text-[10px] uppercase tracking-widest text-brand-secondary">
                       Email Status: <span className="text-white">{debugStatus}</span>
+                      {debugMessage && <p className="text-red-400 mt-2 lowercase normal-case border-t border-white/5 pt-2">Error: {debugMessage}</p>}
                       {debugStatus === 'missing_api_key' && <p className="text-red-400 mt-2 lowercase normal-case">Action Required: Add RESEND_API_KEY to Vercel and redeploy.</p>}
                       {debugStatus === 'failed' && <p className="text-red-400 mt-2 lowercase normal-case">Action Required: Verify your domain in the Resend dashboard.</p>}
                     </div>
                   )}
                   
-                  <Button variant="outline" onClick={() => { setSuccess(false); setDebugStatus(null); }}>Submit Another Event</Button>
+                  <Button variant="outline" onClick={() => { setSuccess(false); setDebugStatus(null); setDebugMessage(null); }}>Submit Another Event</Button>
                 </motion.div>
               ) : null}
             </AnimatePresence>
