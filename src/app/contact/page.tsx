@@ -17,6 +17,7 @@ const formSchema = z.object({
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [debugStatus, setDebugStatus] = useState<string | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -54,6 +55,8 @@ export default function ContactPage() {
       });
 
       if (res.ok) {
+        const json = await res.json();
+        setDebugStatus(json.debug?.emailStatus || 'unknown');
         setSuccess(true);
         (e.target as HTMLFormElement).reset();
       } else {
@@ -126,8 +129,17 @@ export default function ContactPage() {
                     <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
                   </div>
                   <h3 className="font-serif text-3xl text-brand-text-primary mb-4">Inquiry Received</h3>
-                  <p className="text-brand-text-secondary mb-8">Thank you for considering Visual Time. Our team will review your details and be in touch shortly.</p>
-                  <Button variant="outline" onClick={() => setSuccess(false)}>Submit Another Event</Button>
+                  <p className="text-brand-text-secondary mb-4">Thank you for considering Visual Time. Our team will review your details and be in touch shortly.</p>
+                  
+                  {debugStatus && (
+                    <div className="mb-8 p-3 rounded bg-white/5 border border-white/10 text-[10px] uppercase tracking-widest text-brand-secondary">
+                      Email Status: <span className="text-white">{debugStatus}</span>
+                      {debugStatus === 'missing_api_key' && <p className="text-red-400 mt-2 lowercase normal-case">Action Required: Add RESEND_API_KEY to Vercel and redeploy.</p>}
+                      {debugStatus === 'failed' && <p className="text-red-400 mt-2 lowercase normal-case">Action Required: Verify your domain in the Resend dashboard.</p>}
+                    </div>
+                  )}
+                  
+                  <Button variant="outline" onClick={() => { setSuccess(false); setDebugStatus(null); }}>Submit Another Event</Button>
                 </motion.div>
               ) : null}
             </AnimatePresence>
