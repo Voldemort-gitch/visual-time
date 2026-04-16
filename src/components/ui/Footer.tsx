@@ -39,7 +39,7 @@ export function Footer() {
           <address className="not-italic text-sm space-y-4">
             <p>Kodambakkam, Chennai</p>
             <p>Tamil Nadu, India</p>
-            <p className="mt-4"><a href="mailto:hello@visualtime.in" className="hover:text-brand-secondary transition-colors">hello@visualtime.in</a></p>
+            <p className="mt-4"><a href="mailto:enquiry@visualtime.in" className="hover:text-brand-secondary transition-colors">enquiry@visualtime.in</a></p>
             <p><a href="tel:+919840082127" className="hover:text-brand-secondary transition-colors">+91 98400 82127</a></p>
             <p className="mt-4 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>

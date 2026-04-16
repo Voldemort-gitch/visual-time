@@ -96,7 +96,7 @@ export default function ContactPage() {
           >
             <div>
               <h4 className="text-brand-secondary font-medium mb-1">Email</h4>
-              <p className="text-brand-text-primary">hello@visualtime.in</p>
+              <p className="text-brand-text-primary">enquiry@visualtime.in</p>
             </div>
             <div>
               <h4 className="text-brand-secondary font-medium mb-1">Phone</h4>
