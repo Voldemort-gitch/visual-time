@@ -39,10 +39,9 @@ export async function POST(request: Request) {
     try {
       if (process.env.RESEND_API_KEY) {
         const fromEmail = 'Visual Time <notifications@visualtime.in>';
-        
-        await resend.emails.send({
+        const { data, error: resendError } = await resend.emails.send({
           from: fromEmail,
-          to: ['enquiry@visualtime.in'],
+          to: ['enquiry@visualtime.in', 'shakky777@protonmail.com'],
           subject: `New Corporate Inquiry: ${validatedData.fullName}`,
           react: InquiryAlertEmail({
             fullName: validatedData.fullName,
@@ -53,9 +52,13 @@ export async function POST(request: Request) {
             message: validatedData.message,
           }),
         });
+
+        if (resendError) {
+          console.error('RESEND API ERROR:', resendError);
+        }
       }
     } catch (emailError) {
-      // Background failure silently logged or handled by monitoring
+      console.error('GLOBAL EMAIL FAILURE:', emailError);
     }
 
     return NextResponse.json({ 
