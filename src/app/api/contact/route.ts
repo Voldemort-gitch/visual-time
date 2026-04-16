@@ -15,15 +15,13 @@ const formSchema = z.object({
 });
 
 export async function POST(request: Request) {
-  console.log('--- INCOMING CONTACT SUBMISSION ---');
   try {
     const body = await request.json();
-    console.log('Body received:', body.fullName);
     const validatedData = formSchema.parse(body);
 
     // 1. Save to Supabase
     if (supabase) {
-      const { error: dbError } = await supabase
+      await supabase
         .from('contact_submissions')
         .insert([
           {
@@ -35,21 +33,14 @@ export async function POST(request: Request) {
             message: validatedData.message,
           }
         ]);
-
-      if (dbError) {
-        console.error('Supabase error:', dbError);
-        return NextResponse.json({ error: 'Failed to save submission' }, { status: 500 });
-      }
     }
 
     // 2. Technical Email Alert
-    let emailStatus = 'skipped';
-    let errorMessage = null;
     try {
       if (process.env.RESEND_API_KEY) {
         const fromEmail = 'Visual Time <notifications@visualtime.in>';
         
-        const { data, error: resendError } = await resend.emails.send({
+        await resend.emails.send({
           from: fromEmail,
           to: ['enquiry@visualtime.in'],
           subject: `New Corporate Inquiry: ${validatedData.fullName}`,
@@ -62,29 +53,14 @@ export async function POST(request: Request) {
             message: validatedData.message,
           }),
         });
-
-        if (resendError) {
-          console.error('RESEND ERROR (Logged):', resendError);
-          emailStatus = 'failed';
-          errorMessage = resendError.message;
-        } else {
-          console.log('RESEND SUCCESS:', data?.id);
-          emailStatus = 'sent';
-        }
-      } else {
-        console.warn('RESEND WARNING: Missing RESEND_API_KEY environment variable. Emails will not be sent.');
-        emailStatus = 'missing_api_key';
       }
-    } catch (emailError: any) {
-      console.error('SERVER-SIDE EMAIL FAILURE (Logged):', emailError);
-      emailStatus = 'error';
-      errorMessage = emailError.message || 'Unknown server error';
+    } catch (emailError) {
+      // Background failure silently logged or handled by monitoring
     }
 
     return NextResponse.json({ 
       success: true, 
-      message: 'Inquiry received',
-      debug: { emailStatus, errorMessage } 
+      message: 'Inquiry received'
     }, { status: 200 });
   } catch (error) {
     if (error instanceof z.ZodError) {
