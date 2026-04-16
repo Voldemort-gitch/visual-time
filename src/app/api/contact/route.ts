@@ -45,7 +45,7 @@ export async function POST(request: Request) {
       if (process.env.RESEND_API_KEY) {
         const fromEmail = 'Visual Time <notifications@visualtime.in>';
         
-        await resend.emails.send({
+        const { data, error: resendError } = await resend.emails.send({
           from: fromEmail,
           to: ['enquiry@visualtime.in'],
           subject: `New Corporate Inquiry: ${validatedData.fullName}`,
@@ -58,10 +58,17 @@ export async function POST(request: Request) {
             message: validatedData.message,
           }),
         });
+
+        if (resendError) {
+          console.error('RESEND ERROR (Logged):', resendError);
+        } else {
+          console.log('RESEND SUCCESS:', data?.id);
+        }
+      } else {
+        console.warn('RESEND WARNING: Missing RESEND_API_KEY environment variable. Emails will not be sent.');
       }
     } catch (emailError) {
-      console.error('Email alert failure:', emailError);
-      // We don't fail the user request here as it's already saved to DB
+      console.error('SERVER-SIDE EMAIL FAILURE (Logged):', emailError);
     }
 
     return NextResponse.json({ success: true, message: 'Inquiry received' }, { status: 200 });
