@@ -130,8 +130,8 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { title: "LED Screen Rental", desc: "High-resolution indoor and outdoor LED video walls for cinematic clarity.", img: "/led_service.png" },
-              { title: "Corporate Events", desc: "Professional management for conferences, launches, and gala celebrations.", img: "/corporate_event.png" },
-              { title: "Technical Production", desc: "End-to-end AV, lighting, and sound for seamless event execution.", img: "/social_event.png" }
+              { title: "Corporate Events", desc: "Professional management for conferences, launches, and gala celebrations.", img: "/corporate_summit.png" },
+              { title: "Technical Production", desc: "End-to-end AV, lighting, and sound for seamless event execution.", img: "/production_setup.png" }
             ].map((service, idx) => (
               <motion.div 
                 key={service.title}

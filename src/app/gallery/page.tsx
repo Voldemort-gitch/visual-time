@@ -5,11 +5,11 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const images = [
-  { id: 1, src: '/led_service.png', category: 'LED' },
-  { id: 2, src: '/corporate_event.png', category: 'Corporate' },
-  { id: 3, src: '/production_service.png', category: 'Production' },
-  { id: 4, src: '/corporate_event.png', category: 'Corporate' },
-  { id: 5, src: '/led_service.png', category: 'LED' },
+  { id: 1, src: '/corporate_summit.png', category: 'Corporate' },
+  { id: 2, src: '/tech_conference.png', category: 'LED' },
+  { id: 3, src: '/production_setup.png', category: 'Production' },
+  { id: 4, src: '/led_wall_detail.png', category: 'LED' },
+  { id: 5, src: '/led_hero.png', category: 'Corporate' },
   { id: 6, src: '/production_service.png', category: 'Production' },
 ];
 
