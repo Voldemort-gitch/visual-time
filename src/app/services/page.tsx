@@ -11,19 +11,19 @@ export default function ServicesPage() {
       title: "LED Screen Rental",
       description: "As Chennai's premier LED specialists, we provide high-resolution indoor and outdoor LED video walls. Our screens feature peak brightness, exceptional color depth, and seamless mechanical alignment, ensuring your visuals are cinematic and impactful.",
       features: ["Indoor P2.5 & P3 High-Res", "Outdoor P3.9 Weatherproof", "Creative Curved Configurations", "Live Video Processing"],
-      image: "/led_service.png"
+      image: "/eurokids.jpeg"
     },
     {
       title: "Corporate Event Management",
       description: "We transform standard corporate gatherings into immersive brand experiences. From award ceremonies to press conferences, we handle every detail—pacing, staging, and logistics—with the precision your brand deserves.",
       features: ["Annual General Meetings", "Awards & Recognition Galas", "Press & Media Launches", "Executive Retreats"],
-      image: "/corporate_event.png"
+      image: "/summit-main.jpeg"
     },
     {
       title: "Technical Production",
       description: "The backbone of any great event is its technical execution. We provide end-to-end AV production, including professional sound reinforcement, stage lighting, and broadcast-quality camera setups.",
       features: ["Pro Audio Systems", "Intelligent Stage Lighting", "Multi-Cam Broadcast", "Technical Directing"],
-      image: "/social_event.png"
+      image: "/marvel-awards.jpeg"
     }
   ];
 

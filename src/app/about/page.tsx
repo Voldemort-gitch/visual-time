@@ -58,8 +58,8 @@ export default function AboutPage() {
         
         <div className="w-full lg:w-1/2 relative aspect-[3/4] md:aspect-square rounded-2xl overflow-hidden shadow-2xl">
           <Image 
-            src="/corporate_summit.png" 
-            alt="Visual Time corporate event setup" 
+            src="/school-event.jpeg" 
+            alt="Visual Time school annual day stage production" 
             fill 
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"

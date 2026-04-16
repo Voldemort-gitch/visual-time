@@ -5,12 +5,17 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const images = [
-  { id: 1, src: '/corporate_summit.png', category: 'Corporate' },
-  { id: 2, src: '/tech_conference.png', category: 'LED' },
-  { id: 3, src: '/production_setup.png', category: 'Production' },
-  { id: 4, src: '/led_wall_detail.png', category: 'LED' },
-  { id: 5, src: '/led_hero.png', category: 'Corporate' },
-  { id: 6, src: '/production_service.png', category: 'Production' },
+  { id: 1, src: '/tunnel.jpeg', category: 'LED' },
+  { id: 2, src: '/summit-main.jpeg', category: 'Corporate' },
+  { id: 3, src: '/marvel-awards.jpeg', category: 'Production' },
+  { id: 4, src: '/eurokids.jpeg', category: 'LED' },
+  { id: 5, src: '/st-bedes.jpeg', category: 'Production' },
+  { id: 6, src: '/summit-timeline.jpeg', category: 'Corporate' },
+  { id: 7, src: '/bank-event.jpeg', category: 'Corporate' },
+  { id: 8, src: '/school-event.jpeg', category: 'Production' },
+  { id: 9, src: '/summit-podium.jpeg', category: 'Corporate' },
+  { id: 10, src: '/Inidian Overseas Bank.jpeg', category: 'Corporate' },
+  { id: 11, src: '/stage-setup.jpeg', category: 'Production' },
 ];
 
 export default function GalleryPage() {
