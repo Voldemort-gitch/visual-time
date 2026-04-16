@@ -24,7 +24,7 @@ export default function GalleryPage() {
     : images.filter(img => img.category === filter);
 
   return (
-    <div className="pt-32 pb-24 min-h-screen">
+    <div className="pt-32 pb-24 min-h-screen bg-grid">
       {/* Header */}
       <section className="text-center max-w-4xl mx-auto px-6 mb-16">
         <motion.h1 

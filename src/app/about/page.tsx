@@ -12,7 +12,7 @@ export default function AboutPage() {
   };
 
   return (
-    <div className="flex flex-col w-full min-h-screen pt-32 pb-24">
+    <div className="flex flex-col w-full min-h-screen pt-32 pb-24 bg-grid">
       {/* Header */}
       <section className="text-center max-w-4xl mx-auto px-6 mb-20 md:mb-32">
         <motion.p 

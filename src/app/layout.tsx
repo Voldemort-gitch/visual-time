@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/ui/Navbar";
 import { Footer } from "@/components/ui/Footer";
@@ -10,8 +10,8 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
 });
 
@@ -56,7 +56,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${playfair.variable} h-full antialiased scroll-smooth`}
+      className={`${inter.variable} ${spaceGrotesk.variable} h-full antialiased scroll-smooth`}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col font-sans text-brand-text-primary bg-brand-background selection:bg-brand-secondary selection:text-brand-background">

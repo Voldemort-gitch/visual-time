@@ -67,7 +67,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="pt-32 pb-24 min-h-[90vh] flex items-center">
+    <div className="pt-32 pb-24 min-h-[90vh] flex items-center bg-grid">
       <div className="max-w-[1200px] mx-auto px-6 w-full flex flex-col md:flex-row gap-16 md:gap-24">
 
         {/* Contact Info */}
@@ -92,19 +92,22 @@ export default function ContactPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="space-y-6 text-sm"
+            className="space-y-8 text-sm"
           >
             <div>
-              <h4 className="text-brand-secondary font-medium mb-1">Email</h4>
-              <p className="text-brand-text-primary">enquiry@visualtime.in</p>
+              <h4 className="text-brand-secondary font-medium uppercase tracking-widest mb-3 text-glow">Email</h4>
+              <p className="text-brand-text-primary text-lg">enquiry@visualtime.in</p>
             </div>
             <div>
-              <h4 className="text-brand-secondary font-medium mb-1">Phone</h4>
-              <p className="text-brand-text-primary">+91 98400 82127</p>
+              <h4 className="text-brand-secondary font-medium uppercase tracking-widest mb-3 text-glow">Phone</h4>
+              <div className="space-y-2">
+                <p className="text-brand-text-primary text-xl font-serif tracking-tighter">+91 98400 68568</p>
+                <p className="text-brand-text-primary text-xl font-serif tracking-tighter">+91 98400 82127</p>
+              </div>
             </div>
             <div>
-              <h4 className="text-brand-secondary font-medium mb-1">Office</h4>
-              <p className="text-brand-text-primary">Kodambakkam, Chennai<br />Tamil Nadu, India</p>
+              <h4 className="text-brand-secondary font-medium uppercase tracking-widest mb-3 text-glow">Office</h4>
+              <p className="text-brand-text-primary text-lg leading-relaxed">Kodambakkam, Chennai<br />Tamil Nadu, India</p>
             </div>
           </motion.div>
         </div>

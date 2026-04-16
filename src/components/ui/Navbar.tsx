@@ -43,8 +43,8 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between">
-        <Link href="/" className="font-serif text-2xl tracking-widest text-brand-text-primary">
-          VISUAL<span className="text-brand-secondary">TIME</span>
+        <Link href="/" className="font-serif text-2xl tracking-widest text-brand-text-primary group">
+          VISUAL<span className="text-brand-secondary text-glow transition-all duration-300 group-hover:tracking-[0.2em]">TIME</span>
         </Link>
         
         {/* Desktop Nav */}

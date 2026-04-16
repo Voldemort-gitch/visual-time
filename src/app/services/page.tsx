@@ -28,14 +28,14 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="pt-32 pb-24">
+    <div className="pt-32 pb-24 bg-grid min-h-screen">
       {/* Header */}
-      <section className="text-center max-w-4xl mx-auto px-6 mb-24">
+      <section className="text-center max-w-4xl mx-auto px-6 mb-24 relative z-10">
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="font-serif text-5xl md:text-7xl text-brand-text-primary mb-6"
+          className="font-serif text-5xl md:text-7xl text-brand-text-primary mb-6 text-glow"
         >
           Our <span className="text-brand-secondary italic">Services</span>
         </motion.h1>
@@ -45,12 +45,12 @@ export default function ServicesPage() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-brand-text-secondary text-lg"
         >
-          Bespoke event management tailored to your distinct vision. We handle the complexities so you can be a guest at your own event.
+          Premium technical solutions and professional management for high-stakes corporate environments.
         </motion.p>
       </section>
 
       {/* Services List */}
-      <section className="max-w-[1200px] mx-auto px-6 flex flex-col gap-32">
+      <section className="max-w-[1200px] mx-auto px-6 flex flex-col gap-32 relative z-10">
         {services.map((service, idx) => (
           <motion.div 
             key={service.title}
@@ -60,7 +60,7 @@ export default function ServicesPage() {
             transition={{ duration: 0.8 }}
             className={`flex flex-col gap-12 lg:gap-24 items-center ${idx % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}
           >
-            <div className="w-full lg:w-1/2 relative aspect-[4/3] rounded-2xl overflow-hidden group">
+            <div className="w-full lg:w-1/2 relative aspect-[4/3] rounded-2xl overflow-hidden group glass-morphism">
               <Image 
                 src={service.image} 
                 alt={service.title} 

@@ -16,13 +16,13 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col w-full relative">
+    <div className="flex flex-col w-full relative bg-grid">
       {/* Cinematic Ambient Orbs */}
-      <motion.div style={{ y: orbsY }} className="absolute top-[20%] left-[-10%] w-[600px] h-[600px] bg-brand-secondary/10 blur-[150px] rounded-full pointer-events-none z-0 mix-blend-screen"></motion.div>
-      <motion.div style={{ y: backgroundY }} className="absolute top-[60%] right-[-10%] w-[800px] h-[800px] bg-brand-accent/5 blur-[180px] rounded-full pointer-events-none z-0 mix-blend-screen"></motion.div>
+      <motion.div style={{ y: orbsY }} className="absolute top-[10%] left-[-5%] w-[500px] h-[500px] bg-brand-secondary/5 blur-[120px] rounded-full pointer-events-none z-0 mix-blend-screen"></motion.div>
+      <motion.div style={{ y: backgroundY }} className="absolute top-[50%] right-[-5%] w-[700px] h-[700px] bg-brand-secondary/5 blur-[150px] rounded-full pointer-events-none z-0 mix-blend-screen"></motion.div>
 
       {/* Cinematic Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden pt-20">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden pt-20 border-b border-white/5">
         <motion.div style={{ y: backgroundY }} className="absolute inset-0 z-0 scale-110 transform origin-top">
           <Image 
             src="/hero_bg.png" 

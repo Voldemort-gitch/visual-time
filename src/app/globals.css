@@ -1,16 +1,35 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-primary: #0A0A0C;
-  --color-brand-secondary: #D4AF37;
-  --color-brand-accent: #F3E5AB;
-  --color-brand-background: #030304;
-  --color-brand-surface: #0E0E12;
-  --color-brand-text-primary: #FAFAFA;
-  --color-brand-text-secondary: #8E8E9E;
+  --color-brand-primary: #050505;
+  --color-brand-secondary: #00E5FF; /* Electric Cyan */
+  --color-brand-accent: #64748B;    /* Slate/Silver */
+  --color-brand-background: #020203;
+  --color-brand-surface: #0A0A0F;
+  --color-brand-text-primary: #FFFFFF;
+  --color-brand-text-secondary: #94A3B8;
 
   --font-sans: var(--font-inter);
-  --font-serif: var(--font-playfair);
+  --font-serif: var(--font-space-grotesk); /* Reusing the variable but it's actually for headings */
+}
+
+/* Digital Grid Pattern */
+.bg-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 229, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 229, 255, 0.05) 1px, transparent 1px);
+}
+
+.glass-morphism {
+  background: rgba(10, 10, 15, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
 }
 
 .grain-overlay {
