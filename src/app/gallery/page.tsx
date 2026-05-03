@@ -49,8 +49,8 @@ export default function GalleryPage() {
             onClick={() => setFilter(cat)}
             className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
               filter === cat 
-                ? 'bg-brand-secondary text-brand-background' 
-                : 'border border-white/10 text-brand-text-secondary hover:text-brand-text-primary'
+                ? 'bg-brand-secondary text-white shadow-md' 
+                : 'border border-brand-secondary/20 text-brand-text-secondary hover:text-brand-secondary'
             }`}
           >
             {cat}

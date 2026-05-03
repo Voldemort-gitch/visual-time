@@ -11,10 +11,10 @@ export function Button({ variant = 'primary', size = 'md', className = '', child
   const baseStyles = "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-300 focus:outline-none";
   
   const variants = {
-    primary: "bg-brand-surface text-brand-text-primary border border-brand-secondary/20 relative overflow-hidden group hover:border-brand-secondary/60 shadow-[0_0_20px_rgba(0,229,255,0.05)]",
-    secondary: "bg-brand-secondary text-brand-primary font-bold tracking-widest uppercase text-sm shadow-[0_0_20px_rgba(0,229,255,0.4)] hover:shadow-[0_0_35px_rgba(0,229,255,0.7)]",
-    outline: "border border-brand-secondary/50 text-brand-secondary hover:bg-brand-secondary hover:text-brand-primary tracking-widest uppercase text-sm",
-    ghost: "text-brand-text-secondary hover:text-brand-text-primary hover:bg-white/5",
+    primary: "bg-brand-secondary text-white font-bold tracking-widest uppercase text-sm shadow-[0_10px_20px_rgba(0,102,255,0.2)] hover:shadow-[0_15px_30px_rgba(0,102,255,0.4)]",
+    secondary: "bg-brand-accent text-white font-bold tracking-widest uppercase text-sm shadow-[0_10px_20px_rgba(255,92,0,0.2)] hover:shadow-[0_15px_30px_rgba(255,92,0,0.4)]",
+    outline: "border-2 border-brand-secondary text-brand-secondary hover:bg-brand-secondary hover:text-white font-bold tracking-widest uppercase text-sm",
+    ghost: "text-brand-text-secondary hover:text-brand-secondary hover:bg-brand-secondary/5",
   };
 
   const sizes = {

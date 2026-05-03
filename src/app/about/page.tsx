@@ -64,16 +64,16 @@ export default function AboutPage() {
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 border border-white/10 rounded-2xl pointer-events-none z-10"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+          <div className="absolute inset-0 border border-gray-200 rounded-2xl pointer-events-none z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-50/20 to-transparent"></div>
         </div>
       </section>
 
       {/* Core Values Section */}
-      <section className="py-24 bg-brand-surface border-y border-white/5 mb-32">
+      <section className="py-24 bg-gray-50 border-y border-gray-200 mb-32">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl text-brand-text-primary mb-4">Our Core Values</h2>
+            <h2 className="font-serif text-4xl text-gray-900 mb-4">Our Core Values</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
@@ -87,11 +87,11 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.2 }}
-                className="p-8 border border-white/5 rounded-xl bg-brand-background/50 hover:border-brand-secondary/30 transition-colors"
+                className="p-8 border border-gray-200 rounded-xl bg-white hover:border-brand-primary/30 transition-colors shadow-sm"
               >
-                <div className="text-brand-secondary text-4xl mb-6 font-serif">0{idx + 1}</div>
-                <h3 className="text-brand-text-primary text-2xl font-serif mb-4">{value.title}</h3>
-                <p className="text-brand-text-secondary leading-relaxed">{value.desc}</p>
+                <div className="text-brand-primary text-4xl mb-6 font-serif">0{idx + 1}</div>
+                <h3 className="text-gray-900 text-2xl font-serif mb-4">{value.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{value.desc}</p>
               </motion.div>
             ))}
           </div>

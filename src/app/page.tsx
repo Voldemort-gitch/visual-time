@@ -30,7 +30,7 @@ export default function Home() {
             fill 
             sizes="100vw"
             priority
-            className="object-cover object-center filter brightness-[0.4]"
+            className="object-cover object-center filter brightness-[0.8] opacity-90"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-brand-background via-transparent to-brand-background/40"></div>
         </motion.div>
@@ -85,11 +85,11 @@ export default function Home() {
         >
           <div className="relative aspect-square w-full md:w-4/5 mx-auto flex items-center justify-center p-8 bg-brand-surface/30 rounded-3xl border border-white/5 shadow-2xl overflow-hidden group">
             <Image 
-              src="/logo.png" 
+              src="/logo_new.png" 
               alt="Visual Time Logo" 
               fill 
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-contain p-8 md:p-16 group-hover:scale-105 transition-transform duration-700 drop-shadow-[0_0_30px_rgba(201,162,78,0.2)]"
+              className="object-contain p-8 md:p-12 group-hover:scale-105 transition-transform duration-700 drop-shadow-[0_10px_30px_rgba(0,102,255,0.1)]"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-brand-secondary/5 to-transparent pointer-events-none rounded-3xl"></div>
           </div>

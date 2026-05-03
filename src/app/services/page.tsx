@@ -60,7 +60,7 @@ export default function ServicesPage() {
             transition={{ duration: 0.8 }}
             className={`flex flex-col gap-12 lg:gap-24 items-center ${idx % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}
           >
-            <div className="w-full lg:w-1/2 relative aspect-[4/3] rounded-2xl overflow-hidden group glass-morphism">
+            <div className="w-full lg:w-1/2 relative aspect-[4/3] rounded-2xl overflow-hidden group shadow-2xl shadow-brand-secondary/5">
               <Image 
                 src={service.image} 
                 alt={service.title} 
@@ -77,7 +77,7 @@ export default function ServicesPage() {
               
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
                 {service.features.map(feature => (
-                  <li key={feature} className="flex items-center text-sm text-brand-text-primary before:content-[''] before:block before:w-1.5 before:h-1.5 before:bg-brand-secondary before:rounded-full before:mr-3">
+                  <li key={feature} className="flex items-center text-sm text-brand-text-secondary before:content-[''] before:block before:w-1.5 before:h-1.5 before:bg-brand-secondary before:rounded-full before:mr-3">
                     {feature}
                   </li>
                 ))}
