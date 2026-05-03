@@ -53,7 +53,7 @@ export async function POST(request: Request) {
           }),
         });
       }
-    } catch (emailError) {
+    } catch {
       // Background failure silently handled for production
     }
 

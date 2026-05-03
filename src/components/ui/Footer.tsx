@@ -4,29 +4,33 @@ import Image from 'next/image';
 
 export function Footer() {
   return (
-    <footer className="bg-brand-primary text-brand-text-secondary border-t border-white/5 py-16 md:py-24">
+    <footer className="bg-brand-background text-brand-text-secondary border-t border-white/5 py-16 md:py-24">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="col-span-1 md:col-span-1">
-          <Link href="/" className="relative h-12 w-48 block mb-6">
+          <Link href="/" className="relative w-32 h-10 block mb-6">
             <Image 
-              src="/logo_new.png" 
+              src="/vt_new_logo_bg.png" 
               alt="Visual Time Logo" 
               fill 
-              className="object-contain object-left"
+              sizes="128px"
+              className="object-contain filter brightness-110"
             />
           </Link>
           <p className="text-sm leading-relaxed max-w-sm mb-6">
-            Rental - Service Provider of LED Video Wall's & Audio & Video Equipment's. Providing premium technical solutions in Chennai for over 26 years.
+            Pioneering premium LED rental solutions and corporate event production in Chennai for over 26 years. From high-resolution video walls to seamless corporate management.
           </p>
         </div>
         
         <div>
           <h4 className="font-serif text-brand-text-primary text-lg mb-6 tracking-wider">Services</h4>
           <ul className="space-y-4 text-sm">
-            <li><Link href="/services" className="hover:text-brand-secondary transition-colors">LED Screen Rental</Link></li>
-            <li><Link href="/services" className="hover:text-brand-secondary transition-colors">Corporate Events</Link></li>
-            <li><Link href="/services" className="hover:text-brand-secondary transition-colors">Product Launches</Link></li>
-            <li><Link href="/services" className="hover:text-brand-secondary transition-colors">Technical Production</Link></li>
+            <li><Link href="/services" className="hover:text-brand-secondary transition-colors">LED Video Walls Indoor</Link></li>
+            <li><Link href="/services" className="hover:text-brand-secondary transition-colors">LED Video Walls Outdoor</Link></li>
+            <li><Link href="/services" className="hover:text-brand-secondary transition-colors">LED Video Walls Curved</Link></li>
+            <li><Link href="/services" className="hover:text-brand-secondary transition-colors">Stage Fabrication</Link></li>
+            <li><Link href="/services" className="hover:text-brand-secondary transition-colors">Sound &amp; Lights</Link></li>
+            <li><Link href="/services" className="hover:text-brand-secondary transition-colors">LCD Projectors</Link></li>
+            <li><Link href="/services" className="hover:text-brand-secondary transition-colors">Video and Photography</Link></li>
           </ul>
         </div>
 

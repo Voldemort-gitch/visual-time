@@ -29,7 +29,7 @@ export default function AboutPage() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="font-serif text-5xl md:text-7xl text-brand-text-primary mb-6"
         >
-          Behind the <span className="text-brand-secondary italic">Curtain</span>
+          Behind the <span className="text-brand-secondary">Curtain</span>
         </motion.h1>
       </section>
 
@@ -45,15 +45,20 @@ export default function AboutPage() {
           className="w-full lg:w-1/2 flex flex-col"
         >
           <motion.h2 variants={fadeUpVariant} className="font-serif text-3xl md:text-5xl text-brand-text-primary mb-8 leading-snug">
-            We don't just plan events. <br/>
-            <span className="text-brand-secondary italic">We stage experiences.</span>
+            We don&apos;t just plan events. <br/>
+            <span className="text-brand-secondary">We stage experiences.</span>
           </motion.h2>
-          <motion.p variants={fadeUpVariant} className="text-brand-text-secondary text-lg leading-relaxed mb-6">
-            Visual Time was founded in Kodambakkam, Chennai, with a singular vision: to bring cinematic storytelling and technical excellence into the world of LED technology and corporate production. Over the past 26 years, what started as a collective of passionate AV engineers and event designers has evolved into one of South India's premier boutique technical firms.
-          </motion.p>
-          <motion.p variants={fadeUpVariant} className="text-brand-text-secondary text-lg leading-relaxed mb-8">
-            Our approach isn't about simply providing equipment. It's about lighting, staging, technical precision, and atmosphere. We treat every corporate launch, conference, or LED installation like a high-end film production—ensuring every detail is a carefully crafted masterpiece of technical brilliance.
-          </motion.p>
+          <motion.div variants={fadeUpVariant} className="space-y-6 text-brand-text-secondary text-lg leading-relaxed">
+            <p>
+              Visual Time is a specialist in Rental service provider for Audio &amp; Visual Equipments. Established in 2001 in still with the Illusion, we are dealing with National, Multinational Corporate as our Client. We provide Professional Consultancy and Reliable Support for all types of Events &amp; Functions.
+            </p>
+            <p>
+              Our Specialized Fields are: Conferences, Seminars, and Exhibitions, Opening Ceremonies, Product Launches, Small Meetings and many more... Our team is filled with experts who are very dedicated to co-creating your event and have the drive to always provide top-notch and personalized service to ensure that your event is a resounding success.
+            </p>
+            <p>
+              On top of it all, we keep the cost low and affordable without compromising on the quality of service. We are Rental service provider for LED Video Wall available in various sizes / series according to your need. Therefore we are holding huge capacity of size, upgrade materials, &amp; Experienced Technicians.
+            </p>
+          </motion.div>
         </motion.div>
         
         <div className="w-full lg:w-1/2 relative aspect-[3/4] md:aspect-square rounded-2xl overflow-hidden shadow-2xl">
@@ -64,22 +69,22 @@ export default function AboutPage() {
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 border border-gray-200 rounded-2xl pointer-events-none z-10"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-50/20 to-transparent"></div>
+          <div className="absolute inset-0 border border-white/10 rounded-2xl pointer-events-none z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
         </div>
       </section>
 
       {/* Core Values Section */}
-      <section className="py-24 bg-gray-50 border-y border-gray-200 mb-32">
+      <section className="py-24 bg-brand-surface border-y border-white/5 mb-32">
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl text-gray-900 mb-4">Our Core Values</h2>
+            <h2 className="font-serif text-4xl text-brand-text-primary mb-4">Our Core Values</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
-              { title: 'Cinematic Visuals', desc: 'High-resolution LED walls and intelligent lighting designed to captivate your audience.' },
-              { title: 'Technical Precision', desc: 'From pixel-pitch alignment to sound engineering, we accept nothing but technical perfection.' },
-              { title: 'Corporate Narrative', desc: 'Every production is bespoke, engineered to reflect your brand identity and event goals.' }
+              { title: 'Our Vision', desc: 'To be well-recognized for our Professional Standard & Efficiency while operating with our High Quality Equipments & Excellent Services for our clients.' },
+              { title: 'Our Mission', desc: 'To understand the business needs & requirements of our clients. Outfitted with experience, the Professionals at Active Visual provide cost effective solutions with Professional Services tailored to their needs.' },
+              { title: 'Our Aim', desc: 'To ENSURE YOUR EVENT SUCCESS! We offer the most competitive pricing in the market without compromising on the quality of service.' }
             ].map((value, idx) => (
               <motion.div 
                 key={value.title}
@@ -87,11 +92,11 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.2 }}
-                className="p-8 border border-gray-200 rounded-xl bg-white hover:border-brand-primary/30 transition-colors shadow-sm"
+                className="p-8 border border-white/5 rounded-xl bg-brand-surface hover:border-brand-secondary/30 transition-all duration-300"
               >
-                <div className="text-brand-primary text-4xl mb-6 font-serif">0{idx + 1}</div>
-                <h3 className="text-gray-900 text-2xl font-serif mb-4">{value.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{value.desc}</p>
+                <div className="text-brand-secondary text-4xl mb-6 font-serif">0{idx + 1}</div>
+                <h3 className="text-brand-text-primary text-2xl font-serif mb-4">{value.title}</h3>
+                <p className="text-brand-text-secondary leading-relaxed">{value.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -106,7 +111,7 @@ export default function AboutPage() {
           viewport={{ once: true }}
           className="font-serif text-4xl md:text-5xl text-brand-text-primary mb-8"
         >
-          Let's Write Your <span className="text-brand-secondary italic">Next Chapter</span>
+          Let&apos;s Write Your <span className="text-brand-secondary">Next Chapter</span>
         </motion.h2>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
@@ -115,7 +120,7 @@ export default function AboutPage() {
           transition={{ delay: 0.1 }}
           className="text-brand-text-secondary text-lg mb-12"
         >
-          Partner with Chennai's premier LED and corporate production firm. We're ready to bring your technical vision to life with cinematic clarity.
+          Partner with Chennai&apos;s premier LED and corporate production firm. We&apos;re ready to bring your technical vision to life with cinematic clarity.
         </motion.p>
         <motion.div
            initial={{ opacity: 0, y: 20 }}

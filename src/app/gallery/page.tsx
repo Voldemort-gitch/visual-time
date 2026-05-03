@@ -19,14 +19,7 @@ const images = [
 ];
 
 export default function GalleryPage() {
-  const [filter, setFilter] = useState('All');
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-
-  const categories = ['All', 'LED', 'Corporate', 'Production'];
-
-  const filteredImages = filter === 'All' 
-    ? images 
-    : images.filter(img => img.category === filter);
 
   return (
     <div className="pt-32 pb-24 min-h-screen bg-grid">
@@ -37,32 +30,17 @@ export default function GalleryPage() {
           animate={{ opacity: 1, y: 0 }}
           className="font-serif text-5xl md:text-7xl text-brand-text-primary mb-6"
         >
-          Our <span className="text-brand-secondary italic">Gallery</span>
+          Our <span className="text-brand-secondary">Gallery</span>
         </motion.h1>
       </section>
 
-      {/* Filters */}
-      <section className="mb-12 flex justify-center space-x-4 px-6 overflow-x-auto">
-        {categories.map(cat => (
-          <button
-            key={cat}
-            onClick={() => setFilter(cat)}
-            className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
-              filter === cat 
-                ? 'bg-brand-secondary text-white shadow-md' 
-                : 'border border-brand-secondary/20 text-brand-text-secondary hover:text-brand-secondary'
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
-      </section>
+      {/* Categories Removed per Request */}
 
       {/* Masonry Grid */}
       <section className="max-w-[1400px] mx-auto px-6">
         <motion.div layout className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
           <AnimatePresence>
-            {filteredImages.map(img => (
+            {images.map(img => (
               <motion.div
                 layout
                 key={img.id}
@@ -70,7 +48,7 @@ export default function GalleryPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4 }}
-                className="relative overflow-hidden rounded-xl break-inside-avoid cursor-zoom-in group"
+                className="relative overflow-hidden rounded-lg break-inside-avoid cursor-zoom-in group border border-white/5"
                 onClick={() => setSelectedImage(img.src)}
               >
                 <div className="relative w-full" style={{ paddingBottom: img.id % 2 === 0 ? '125%' : '75%' }}>
@@ -82,7 +60,7 @@ export default function GalleryPage() {
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-brand-text-primary font-serif italic text-lg">{img.category}</span>
+                    <span className="text-brand-text-primary font-serif text-lg tracking-wider uppercase">{img.category}</span>
                   </div>
                 </div>
               </motion.div>

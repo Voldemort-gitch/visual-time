@@ -59,7 +59,7 @@ export default function ContactPage() {
       } else {
         alert("Something went wrong. Please try again.");
       }
-    } catch (err) {
+    } catch {
       alert("Failed to submit the form.");
     } finally {
       setIsSubmitting(false);
@@ -77,7 +77,7 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             className="font-serif text-5xl text-brand-text-primary mb-6"
           >
-            Let's <span className="text-brand-secondary italic">Connect</span>
+            Let&apos;s <span className="text-brand-secondary">Connect</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -114,7 +114,7 @@ export default function ContactPage() {
 
         {/* Contact Form */}
         <div className="w-full md:w-2/3">
-          <div className="bg-white p-8 md:p-12 rounded-2xl border border-brand-secondary/10 shadow-2xl relative overflow-hidden">
+          <div className="bg-brand-surface p-8 md:p-12 rounded-2xl border border-white/5 shadow-2xl relative overflow-hidden">
             <AnimatePresence>
               {success ? (
                 <motion.div
@@ -137,12 +137,12 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-xs font-medium text-brand-text-secondary uppercase mb-2">Full Name</label>
-                  <input name="fullName" type="text" className={`w-full bg-brand-surface border ${errors.fullName ? 'border-red-500' : 'border-brand-secondary/10'} rounded-lg px-4 py-3 text-brand-text-primary focus:outline-none focus:border-brand-secondary transition-colors`} />
+                  <input name="fullName" type="text" className={`w-full bg-black/50 border ${errors.fullName ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-secondary transition-colors`} />
                   {errors.fullName && <p className="text-red-500 text-xs mt-1">{errors.fullName}</p>}
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-brand-text-secondary uppercase mb-2">Email Address</label>
-                  <input name="email" type="email" className={`w-full bg-brand-surface border ${errors.email ? 'border-red-500' : 'border-brand-secondary/10'} rounded-lg px-4 py-3 text-brand-text-primary focus:outline-none focus:border-brand-secondary transition-colors`} />
+                  <input name="email" type="email" className={`w-full bg-black/50 border ${errors.email ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-secondary transition-colors`} />
                   {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                 </div>
               </div>
@@ -150,12 +150,12 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-xs font-medium text-brand-text-secondary uppercase mb-2">Phone Number</label>
-                  <input name="phoneNumber" type="tel" className={`w-full bg-brand-surface border ${errors.phoneNumber ? 'border-red-500' : 'border-brand-secondary/10'} rounded-lg px-4 py-3 text-brand-text-primary focus:outline-none focus:border-brand-secondary transition-colors`} />
+                  <input name="phoneNumber" type="tel" className={`w-full bg-black/50 border ${errors.phoneNumber ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-secondary transition-colors`} />
                   {errors.phoneNumber && <p className="text-red-500 text-xs mt-1">{errors.phoneNumber}</p>}
                 </div>
                 <div>
                   <label className="block text-xs font-medium text-brand-text-secondary uppercase mb-2">Event Type</label>
-                  <select name="eventType" className={`w-full bg-brand-surface border ${errors.eventType ? 'border-red-500' : 'border-brand-secondary/10'} rounded-lg px-4 py-3 text-brand-text-primary focus:outline-none focus:border-brand-secondary transition-colors appearance-none`}>
+                  <select name="eventType" className={`w-full bg-black/50 border ${errors.eventType ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-secondary transition-colors appearance-none`}>
                     <option value="">Select Event Type</option>
                     <option value="LED Screen Rental">LED Screen Rental</option>
                     <option value="Corporate">Corporate Event</option>
@@ -169,13 +169,13 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="md:col-span-2">
                   <label className="block text-xs font-medium text-brand-text-secondary uppercase mb-2">Estimated Date (Optional)</label>
-                  <input name="eventDate" type="date" className="w-full bg-brand-surface border border-brand-secondary/10 rounded-lg px-4 py-3 text-brand-text-primary focus:outline-none focus:border-brand-secondary transition-colors" />
+                  <input name="eventDate" type="date" className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-secondary transition-colors [color-scheme:dark]" />
                 </div>
               </div>
 
               <div>
                 <label className="block text-xs font-medium text-brand-text-secondary uppercase mb-2">Event Details / Message</label>
-                <textarea name="message" rows={4} className={`w-full bg-brand-surface border ${errors.message ? 'border-red-500' : 'border-brand-secondary/10'} rounded-lg px-4 py-3 text-brand-text-primary focus:outline-none focus:border-brand-secondary transition-colors resize-none`}></textarea>
+                <textarea name="message" rows={4} className={`w-full bg-black/50 border ${errors.message ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-secondary transition-colors resize-none`}></textarea>
                 {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
               </div>
 
