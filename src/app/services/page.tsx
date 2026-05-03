@@ -8,15 +8,15 @@ import { Button } from '@/components/ui/Button';
 export default function ServicesPage() {
   const services = [
     {
-      title: "LED Screen Rental",
-      description: "As Chennai's premier LED specialists, we provide high-resolution indoor and outdoor LED video walls. Our screens feature peak brightness, exceptional color depth, and seamless mechanical alignment, ensuring your visuals are cinematic and impactful.",
+      title: "LED Video Wall's",
+      description: "As Chennai's premier LED specialists, we provide high-resolution indoor and outdoor LED video walls. Our screens feature peak brightness, exceptional color depth, and seamless mechanical alignment, ensuring your visuals are sharp and impactful.",
       features: ["Indoor P2.5 & P3 High-Res", "Outdoor P3.9 Weatherproof", "Creative Curved Configurations", "Live Video Processing"],
       image: "/eurokids.jpeg"
     },
     {
-      title: "Corporate Event Management",
-      description: "We transform standard corporate gatherings into immersive brand experiences. From award ceremonies to press conferences, we handle every detail—pacing, staging, and logistics—with the precision your brand deserves.",
-      features: ["Annual General Meetings", "Awards & Recognition Galas", "Press & Media Launches", "Executive Retreats"],
+      title: "Audio & Video Equipment",
+      description: "We provide state-of-the-art audio and video equipment for events of all sizes. From professional sound reinforcement to high-definition projectors and broadcast-quality visual systems.",
+      features: ["Professional Audio Systems", "HD Projectors & Screens", "Multi-Cam Setups", "Live Stream Integration"],
       image: "/summit-main.jpeg"
     },
     {

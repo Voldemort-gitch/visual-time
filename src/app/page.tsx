@@ -44,11 +44,10 @@ export default function Home() {
           }}
           className="relative z-10 text-center max-w-4xl px-6 md:px-12"
         >
-          <motion.p variants={fadeUpVariant} className="text-brand-secondary tracking-[0.3em] text-sm md:text-base uppercase mb-6 drop-shadow-lg">
-            Chennai's Premier LED & Corporate Event Specialists
-          </motion.p>
           <motion.h1 variants={fadeUpVariant} className="font-serif text-5xl md:text-7xl lg:text-8xl text-brand-text-primary mb-8 leading-tight drop-shadow-xl">
-            Pioneering <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary via-[#F5E1A4] to-[#8A6A22]">Cinematic</span> LED & Event Solutions
+            Rental - Service Provider of <br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary via-[#F5E1A4] to-[#8A6A22]">LED Video Wall's</span> <br/>
+            & Audio & Video Equipment's
           </motion.h1>
           <motion.div variants={fadeUpVariant} className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12">
             <Link href="/services">
@@ -129,8 +128,8 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: "LED Screen Rental", desc: "High-resolution indoor and outdoor LED video walls for cinematic clarity.", img: "/eurokids.jpeg" },
-              { title: "Corporate Events", desc: "Professional management for conferences, launches, and gala celebrations.", img: "/summit-main.jpeg" },
+              { title: "LED Video Wall's", desc: "High-resolution indoor and outdoor LED video walls for high-impact clarity.", img: "/eurokids.jpeg" },
+              { title: "Audio & Video", desc: "Professional sound reinforcement and visual equipment for any event scale.", img: "/summit-main.jpeg" },
               { title: "Technical Production", desc: "End-to-end AV, lighting, and sound for seamless event execution.", img: "/marvel-awards.jpeg" }
             ].map((service, idx) => (
               <motion.div 

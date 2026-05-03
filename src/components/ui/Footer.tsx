@@ -7,11 +7,16 @@ export function Footer() {
     <footer className="bg-brand-primary text-brand-text-secondary border-t border-white/5 py-16 md:py-24">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="col-span-1 md:col-span-1">
-          <Link href="/" className="font-serif text-2xl tracking-widest text-brand-text-primary block mb-6">
-            VISUAL<span className="text-brand-secondary">TIME</span>
+          <Link href="/" className="relative h-12 w-48 block mb-6">
+            <Image 
+              src="/logo_new.png" 
+              alt="Visual Time Logo" 
+              fill 
+              className="object-contain object-left"
+            />
           </Link>
           <p className="text-sm leading-relaxed max-w-sm mb-6">
-            Pioneering premium LED rental solutions and corporate event production in Chennai for over 26 years. From high-resolution video walls to seamless corporate management.
+            Rental - Service Provider of LED Video Wall's & Audio & Video Equipment's. Providing premium technical solutions in Chennai for over 26 years.
           </p>
         </div>
         
