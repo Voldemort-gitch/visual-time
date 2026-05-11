@@ -247,6 +247,64 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Client Marquee Section */}
+      <section className="py-20 bg-brand-surface/20 border-y border-white/5 overflow-hidden">
+        <div className="flex whitespace-nowrap">
+          <motion.div
+            animate={{ x: [0, -1000] }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 25,
+                ease: "linear",
+              },
+            }}
+            className="flex gap-20 items-center px-10"
+          >
+            {[
+              "Sun pharmaceuticals Ltd",
+              "Tata Teleservices Ltd",
+              "Madras Cricket Club",
+              "Tata Motors Ltd",
+              "Indo - Amercian Association commitee (IACC)",
+              "Indian Show Federation",
+              "VNC steel Disturbutors",
+              "Ministry of Small,Medium, Enterprises.(MSME)",
+              "Euro Kids School",
+              "Aaditya International School"
+            ].map((client) => (
+              <span
+                key={client}
+                className="text-2xl md:text-3xl font-serif text-brand-text-secondary/50 hover:text-brand-secondary transition-colors duration-300 cursor-default"
+              >
+                {client}
+              </span>
+            ))}
+            {/* Duplicate for seamless loop */}
+            {[
+              "Sun pharmaceuticals Ltd",
+              "Tata Teleservices Ltd",
+              "Madras Cricket Club",
+              "Tata Motors Ltd",
+              "Indo - Amercian Association commitee (IACC)",
+              "Indian Show Federation",
+              "VNC steel Disturbutors",
+              "Ministry of Small,Medium, Enterprises.(MSME)",
+              "Euro Kids School",
+              "Aaditya International School"
+            ].map((client) => (
+              <span
+                key={`${client}-clone`}
+                className="text-2xl md:text-3xl font-serif text-brand-text-secondary/50 hover:text-brand-secondary transition-colors duration-300 cursor-default"
+              >
+                {client}
+              </span>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-32 md:py-48 px-6 text-center relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-secondary/10 via-brand-background to-brand-background"></div>
