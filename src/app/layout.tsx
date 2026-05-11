@@ -17,7 +17,7 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://visualtime.in'),
-  title: "Visual Time | Luxury Event Management & Cinematic Storytelling",
+  title: "Visual Time",
   icons: {
     icon: '/vt_new_logo_bg.png',
     apple: '/vt_new_logo_bg.png',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   description: "Boutique LED rental and corporate event production in Chennai. Specializing in high-end LED screen rentals, cinematic stage designs, and professional corporate event management.",
   keywords: "LED screen rental Chennai, corporate event management Chennai, LED video wall rental, Visual Time LED, professional sound and light rental, product launch management Chennai, event production",
   openGraph: {
-    title: 'Visual Time | Luxury Event Management',
+    title: 'Visual Time',
     description: 'Elevating moments into timeless memories. Premier boutique event firm with over 26 years of experience.',
     url: 'https://visualtime.in',
     siteName: 'Visual Time',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
         url: '/vt_new_logo_bg.png',
         width: 1200,
         height: 630,
-        alt: 'Visual Time | Cinematic Event Management',
+        alt: 'Visual Time',
       },
     ],
     locale: 'en_IN',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Visual Time | Luxury Event Management',
+    title: 'Visual Time',
     description: 'Elevating moments into timeless memories in Chennai.',
     images: ['/vt_new_logo_bg.png'],
   },
