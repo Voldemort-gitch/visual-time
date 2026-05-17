@@ -65,8 +65,8 @@ export default function Home() {
           </motion.div>
           <motion.h1 variants={fadeUpVariant} className="font-serif text-3xl md:text-5xl lg:text-6xl text-brand-text-primary mb-6 leading-snug tracking-tight drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
             Rental - Service Provider of <br />
-            <span className="text-gradient-gold-amber text-glow-gold">LED Video Wall&apos;s &amp;</span> <br />
-            <span className="text-gradient-gold-amber text-glow-gold">Audio &amp; Video Equipment&apos;s</span>
+            <span className="text-brand-secondary drop-shadow-[0_0_8px_rgba(0,240,255,0.6)]">LED Video Wall&apos;s &amp;</span> <br />
+            <span className="text-brand-secondary drop-shadow-[0_0_8px_rgba(0,240,255,0.6)]">Audio &amp; Video Equipment&apos;s</span>
           </motion.h1>
 
           <motion.div variants={fadeUpVariant} className="mt-6 mb-8 text-center bg-brand-surface/40 p-6 md:p-8 rounded-2xl border border-white/5 shadow-2xl backdrop-blur-sm max-w-3xl mx-auto">
@@ -90,8 +90,8 @@ export default function Home() {
       </section>
 
       {/* Cinematic Split LED Screen Showcase (3-Pane Matrix) */}
-      <section className="relative h-[65vh] md:h-[75vh] w-full overflow-hidden border-b border-white/5 bg-brand-background">
-        <div className="grid grid-cols-1 md:grid-cols-3 h-full w-full gap-2 p-2">
+      <section className="relative h-[80vh] md:h-[75vh] w-full overflow-hidden border-b border-white/5 bg-brand-background">
+        <div className="grid grid-cols-1 md:grid-cols-3 h-full w-full gap-2 p-2 md:p-4">
           {/* Pane 1 (LED Visuals / Focus 1) */}
           <div className="relative h-full w-full overflow-hidden rounded-2xl border border-white/5 bg-brand-surface/40">
             <AnimatePresence mode="popLayout">
