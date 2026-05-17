@@ -19,7 +19,7 @@ export default function AboutPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-brand-secondary tracking-[0.3em] text-sm md:text-base uppercase mb-6 drop-shadow-lg"
+          className="text-gradient-gold-amber font-semibold tracking-[0.3em] text-sm md:text-base uppercase mb-6 drop-shadow-lg"
         >
           Our Story
         </motion.p>
@@ -29,7 +29,7 @@ export default function AboutPage() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="font-serif text-5xl md:text-7xl text-brand-text-primary mb-6"
         >
-          Behind the <span className="text-brand-secondary">Curtain</span>
+          Behind the <span className="text-gradient-gold-amber">Curtain</span>
         </motion.h1>
       </section>
 
@@ -46,7 +46,7 @@ export default function AboutPage() {
         >
           <motion.h2 variants={fadeUpVariant} className="font-serif text-3xl md:text-5xl text-brand-text-primary mb-8 leading-snug">
             We don&apos;t just plan events. <br/>
-            <span className="text-brand-secondary">We stage experiences.</span>
+            <span className="text-gradient-gold-amber">We stage experiences.</span>
           </motion.h2>
           <motion.div variants={fadeUpVariant} className="space-y-6 text-brand-text-secondary text-lg leading-relaxed">
             <p>
@@ -66,6 +66,7 @@ export default function AboutPage() {
             src="/school-event.jpeg" 
             alt="Visual Time school annual day stage production" 
             fill 
+            priority
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
           />
@@ -111,7 +112,7 @@ export default function AboutPage() {
           viewport={{ once: true }}
           className="font-serif text-4xl md:text-5xl text-brand-text-primary mb-8"
         >
-          Let&apos;s Write Your <span className="text-brand-secondary">Next Chapter</span>
+          Let&apos;s Write Your <span className="text-gradient-gold-amber">Next Chapter</span>
         </motion.h2>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}

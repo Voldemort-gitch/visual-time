@@ -77,7 +77,7 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             className="font-serif text-5xl text-brand-text-primary mb-6"
           >
-            Let&apos;s <span className="text-brand-secondary">Connect</span>
+            Let&apos;s <span className="text-gradient-gold-amber">Connect</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

@@ -38,11 +38,15 @@ export function Navbar() {
       }}
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
-      className={`fixed top-0 inset-x-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-black/90 backdrop-blur-md border-b border-brand-secondary/40 py-4 shadow-[0_0_20px_rgba(0,255,255,0.1)]" : "bg-transparent py-6"
-      }`}
+      className="fixed top-0 inset-x-0 w-full z-50 pointer-events-none flex flex-col items-center pt-4 md:pt-6 transition-all duration-300"
     >
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between">
+      <div 
+        className={`pointer-events-auto flex items-center justify-between transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          scrolled 
+            ? "w-[92%] md:w-[85%] max-w-[1100px] rounded-full bg-brand-background/85 backdrop-blur-md border border-brand-secondary/20 px-6 md:px-10 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.5)] shadow-[0_0_25px_rgba(245,158,11,0.06)]" 
+            : "w-full max-w-[1400px] rounded-none bg-transparent border-transparent px-6 md:px-12 py-1 shadow-none"
+        }`}
+      >
         <Link href="/" className="relative w-40 h-12 group">
           <Image 
             src="/vt_new_logo_bg.png" 
@@ -61,7 +65,7 @@ export function Navbar() {
             <Link 
               key={link.name} 
               href={link.href}
-              className="text-brand-text-secondary hover:text-brand-secondary transition-colors text-sm uppercase tracking-wider"
+              className="text-brand-text-secondary hover:text-brand-secondary transition-colors text-sm uppercase tracking-wider font-medium"
             >
               {link.name}
             </Link>
@@ -73,7 +77,7 @@ export function Navbar() {
 
         {/* Mobile Nav Toggle */}
         <button 
-          className="md:hidden text-brand-text-primary"
+          className="md:hidden text-brand-text-primary hover:text-brand-secondary transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle Menu"
         >
@@ -84,16 +88,16 @@ export function Navbar() {
       {/* Mobile Menu Dropdown */}
       {menuOpen && (
         <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="md:hidden absolute top-full left-0 w-full bg-brand-background border-b border-white/5 py-6 px-6 flex flex-col space-y-6 shadow-2xl"
+          initial={{ opacity: 0, y: -20, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          className="md:hidden absolute top-[85px] left-1/2 -translate-x-1/2 w-[92%] bg-brand-background/95 backdrop-blur-lg border border-white/10 rounded-2xl py-6 px-6 flex flex-col space-y-6 shadow-2xl pointer-events-auto"
         >
           {links.map((link) => (
             <Link 
               key={link.name} 
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="text-brand-text-primary text-xl font-serif tracking-wide border-b border-white/5 pb-2"
+              className="text-brand-text-primary text-xl font-serif tracking-wide border-b border-white/5 pb-2 hover:text-brand-secondary transition-colors"
             >
               {link.name}
             </Link>

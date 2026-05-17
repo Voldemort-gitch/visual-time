@@ -11,8 +11,8 @@ export function Button({ variant = 'primary', size = 'md', className = '', child
   const baseStyles = "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-300 focus:outline-none";
   
   const variants = {
-    primary: "bg-brand-surface text-brand-text-primary border border-brand-secondary/20 relative overflow-hidden group hover:border-brand-secondary/60 shadow-[0_0_20px_rgba(0,229,255,0.05)]",
-    secondary: "bg-brand-secondary text-black font-bold tracking-widest uppercase text-sm shadow-[0_0_20px_rgba(0,255,255,0.4)] hover:shadow-[0_0_35px_rgba(0,255,255,0.7)]",
+    primary: "bg-brand-surface text-brand-text-primary border border-brand-secondary/20 relative overflow-hidden group hover:border-brand-secondary/60 shadow-[0_0_20px_rgba(245,158,11,0.04)]",
+    secondary: "bg-brand-secondary text-black font-bold tracking-widest uppercase text-sm shadow-[0_0_20px_rgba(245,158,11,0.3)] hover:shadow-[0_0_35px_rgba(245,158,11,0.55)]",
     outline: "border border-brand-secondary/50 text-brand-secondary hover:bg-brand-secondary hover:text-black tracking-widest uppercase text-sm",
     ghost: "text-brand-text-secondary hover:text-brand-text-primary hover:bg-white/5",
   };

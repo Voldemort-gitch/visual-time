@@ -37,7 +37,7 @@ export default function ServicesPage() {
           transition={{ duration: 0.8 }}
           className="font-serif text-5xl md:text-7xl text-brand-text-primary mb-6 text-glow"
         >
-          Our <span className="text-brand-secondary">Services</span>
+          Our <span className="text-gradient-gold-amber">Services</span>
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
@@ -65,6 +65,7 @@ export default function ServicesPage() {
                 src={service.image} 
                 alt={service.title} 
                 fill 
+                priority={idx === 0}
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="p-8 border border-white/5 rounded-xl bg-brand-surface hover:border-brand-secondary/30 transition-all duration-300"
               />

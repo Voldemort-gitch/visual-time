@@ -35,8 +35,8 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full relative">
       {/* Cinematic Ambient Orbs */}
-      <motion.div style={{ y: orbsY }} className="absolute top-[10%] left-[-5%] w-[500px] h-[500px] bg-brand-secondary/5 blur-[120px] rounded-full pointer-events-none z-0 mix-blend-screen"></motion.div>
-      <motion.div style={{ y: backgroundY }} className="absolute top-[50%] right-[-5%] w-[700px] h-[700px] bg-brand-secondary/5 blur-[150px] rounded-full pointer-events-none z-0 mix-blend-screen"></motion.div>
+      <div className="absolute top-[10%] left-[-5%] w-[500px] h-[500px] bg-brand-secondary/5 blur-[120px] rounded-full pointer-events-none z-0 mix-blend-screen animate-orb-breath-1"></div>
+      <div className="absolute top-[50%] right-[-5%] w-[700px] h-[700px] bg-brand-secondary/5 blur-[150px] rounded-full pointer-events-none z-0 mix-blend-screen animate-orb-breath-2"></div>
 
       {/* Cinematic Image Showcase */}
       <section className="relative h-[60vh] md:h-[75vh] w-full overflow-hidden mt-20 border-b border-white/5">
@@ -82,6 +82,7 @@ export default function Home() {
                 src="/vt_new_logo_bg.png"
                 alt="Visual Time Logo"
                 fill
+                priority
                 sizes="(max-width: 768px) 256px, 320px"
                 className="object-contain filter"
               />
@@ -89,8 +90,8 @@ export default function Home() {
           </motion.div>
           <motion.h1 variants={fadeUpVariant} className="font-serif text-3xl md:text-5xl lg:text-6xl text-brand-text-primary mb-6 leading-snug tracking-tight drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
             Rental - Service Provider of <br />
-            <span className="text-brand-secondary text-glow-cyan">LED Video Wall&apos;s &amp;</span> <br />
-            <span className="text-brand-secondary text-glow-cyan">Audio &amp; Video Equipment&apos;s</span>
+            <span className="text-gradient-gold-amber text-glow-gold">LED Video Wall&apos;s &amp;</span> <br />
+            <span className="text-gradient-gold-amber text-glow-gold">Audio &amp; Video Equipment&apos;s</span>
           </motion.h1>
 
           <motion.div variants={fadeUpVariant} className="mt-6 mb-8 text-center bg-brand-surface/40 p-6 md:p-8 rounded-2xl border border-white/5 shadow-2xl backdrop-blur-sm max-w-3xl mx-auto">
@@ -208,7 +209,7 @@ export default function Home() {
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             className="font-serif text-4xl md:text-5xl text-brand-text-primary mb-4"
           >
-            Words From Our <span className="text-brand-secondary">Clients</span>
+            Words From Our <span className="text-gradient-gold-amber">Clients</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -248,7 +249,11 @@ export default function Home() {
       </section>
 
       {/* Client Marquee Section */}
-      <section className="py-20 bg-brand-surface/20 border-y border-white/5 overflow-hidden">
+      <section className="relative py-20 bg-brand-surface/20 border-y border-white/5 overflow-hidden">
+        {/* Subtle fading mask overlays on both sides */}
+        <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-brand-background to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-brand-background to-transparent z-10 pointer-events-none"></div>
+
         <div className="flex whitespace-nowrap">
           <motion.div
             animate={{ x: [0, -1000] }}

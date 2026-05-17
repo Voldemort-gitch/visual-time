@@ -30,7 +30,7 @@ export default function GalleryPage() {
           animate={{ opacity: 1, y: 0 }}
           className="font-serif text-5xl md:text-7xl text-brand-text-primary mb-6"
         >
-          Our <span className="text-brand-secondary">Gallery</span>
+          Our <span className="text-gradient-gold-amber">Gallery</span>
         </motion.h1>
       </section>
 
