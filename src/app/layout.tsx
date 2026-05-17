@@ -22,6 +22,9 @@ export const metadata: Metadata = {
     icon: '/vt_new_logo_bg.png',
     apple: '/vt_new_logo_bg.png',
   },
+  verification: {
+    google: 'EccI2vzxTVbWsD1lUQo3n8xyfSnQ8gqm8EnKJ811bQU',
+  },
   description: "Boutique LED rental and corporate event production in Chennai. Specializing in high-end LED screen rentals, cinematic stage designs, and professional corporate event management.",
   keywords: "LED screen rental Chennai, corporate event management Chennai, LED video wall rental, Visual Time LED, professional sound and light rental, product launch management Chennai, event production",
   openGraph: {
