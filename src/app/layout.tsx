@@ -4,10 +4,8 @@ import "./globals.css";
 import { Navbar } from "@/components/ui/Navbar";
 import { Footer } from "@/components/ui/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
-import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { MouseGlow } from "@/components/ui/MouseGlow";
-import { StageLightController } from "@/components/ui/StageLightController";
-import { PageTransition } from "@/components/ui/PageTransition";
+import { BackToTop } from "@/components/ui/BackToTop";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -68,17 +66,25 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col font-sans text-brand-text-primary bg-brand-background selection:bg-brand-secondary selection:text-brand-background">
-        <ScrollProgress />
+        <div className="led-border-glow" aria-hidden="true"></div>
         <MouseGlow />
+        <BackToTop />
+        <div className="stage-sparks">
+          <div className="stage-spark stage-spark-1"></div>
+          <div className="stage-spark stage-spark-2"></div>
+          <div className="stage-spark stage-spark-3"></div>
+          <div className="stage-spark stage-spark-4"></div>
+          <div className="stage-spark stage-spark-5"></div>
+          <div className="stage-spark stage-spark-6"></div>
+          <div className="stage-spark stage-spark-7"></div>
+          <div className="stage-spark stage-spark-8"></div>
+        </div>
         <div className="grain-overlay"></div>
         <Navbar />
         <main className="flex-grow flex flex-col">
-          <PageTransition>
-            {children}
-          </PageTransition>
+          {children}
         </main>
         <Footer />
-        <StageLightController />
         <WhatsAppButton />
       </body>
     </html>

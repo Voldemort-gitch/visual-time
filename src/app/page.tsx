@@ -39,35 +39,8 @@ export default function Home() {
       <div className="absolute top-[10%] left-[-5%] w-[500px] h-[500px] bg-brand-secondary/5 blur-[120px] rounded-full pointer-events-none z-0 mix-blend-screen animate-orb-breath-1"></div>
       <div className="absolute top-[50%] right-[-5%] w-[700px] h-[700px] bg-brand-secondary/5 blur-[150px] rounded-full pointer-events-none z-0 mix-blend-screen animate-orb-breath-2"></div>
 
-      {/* Cinematic Image Showcase */}
-      <section className="relative h-[60vh] md:h-[75vh] w-full overflow-hidden mt-20 border-b border-white/5">
-        <motion.div style={{ y: backgroundY }} className="absolute inset-0 z-0 scale-110 transform origin-top overflow-hidden">
-          <AnimatePresence mode="popLayout">
-            <motion.div
-              key={currentBg}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.5, ease: 'easeInOut' }}
-              className="absolute inset-0"
-            >
-              <Image
-                src={heroBackgrounds[currentBg]}
-                alt="Cinematic Event Background"
-                fill
-                sizes="100vw"
-                priority={currentBg === 0}
-                className="object-cover object-center filter brightness-100 transition-all duration-1000"
-              />
-            </motion.div>
-          </AnimatePresence>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-brand-background z-10 pointer-events-none"></div>
-        </motion.div>
-      </section>
-
-      {/* Hero Content Section */}
-      <section className="relative flex items-center justify-center pt-16 pb-24 border-b border-white/5">
-
+      {/* Hero Content Section (Rendered First at Top of Page) */}
+      <section className="relative flex items-center justify-center pt-32 pb-24 md:pt-40 md:pb-32 border-b border-white/5">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -84,6 +57,7 @@ export default function Home() {
                 alt="Visual Time Logo"
                 fill
                 priority
+                loading="eager"
                 sizes="(max-width: 768px) 256px, 320px"
                 className="object-contain filter"
               />
@@ -115,10 +89,82 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Featured Venues Banner removed per request */}
+      {/* Cinematic Split LED Screen Showcase (3-Pane Matrix) */}
+      <section className="relative h-[65vh] md:h-[75vh] w-full overflow-hidden border-b border-white/5 bg-brand-background">
+        <div className="grid grid-cols-1 md:grid-cols-3 h-full w-full gap-2 p-2">
+          {/* Pane 1 (LED Visuals / Focus 1) */}
+          <div className="relative h-full w-full overflow-hidden rounded-2xl border border-white/5 bg-brand-surface/40">
+            <AnimatePresence mode="popLayout">
+              <motion.div
+                key={currentBg}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.2, ease: 'easeInOut' }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={heroBackgrounds[currentBg]}
+                  alt="Cinematic LED Screen"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover object-center filter brightness-90 saturate-110"
+                />
+              </motion.div>
+            </AnimatePresence>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 z-10 pointer-events-none"></div>
+          </div>
+
+          {/* Pane 2 (Stage Production / Focus 2) */}
+          <div className="relative h-full w-full overflow-hidden rounded-2xl border border-white/5 bg-brand-surface/40">
+            <AnimatePresence mode="popLayout">
+              <motion.div
+                key={(currentBg + 1) % heroBackgrounds.length}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.2, ease: 'easeInOut' }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={heroBackgrounds[(currentBg + 1) % heroBackgrounds.length]}
+                  alt="Cinematic Stage Event"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover object-center filter brightness-90 saturate-110"
+                />
+              </motion.div>
+            </AnimatePresence>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 z-10 pointer-events-none"></div>
+          </div>
+
+          {/* Pane 3 (Professional Sound / Focus 3) */}
+          <div className="relative h-full w-full overflow-hidden rounded-2xl border border-white/5 bg-brand-surface/40">
+            <AnimatePresence mode="popLayout">
+              <motion.div
+                key={(currentBg + 2) % heroBackgrounds.length}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.2, ease: 'easeInOut' }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={heroBackgrounds[(currentBg + 2) % heroBackgrounds.length]}
+                  alt="Professional Event Production"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover object-center filter brightness-90 saturate-110"
+                />
+              </motion.div>
+            </AnimatePresence>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 z-10 pointer-events-none"></div>
+          </div>
+        </div>
+      </section>
 
       {/* About Section */}
-      <section className="py-24 md:py-40 px-6 md:px-12 max-w-[1400px] mx-auto w-full">
+      <section className="py-24 md:py-32 px-6 md:px-12 max-w-[1400px] mx-auto w-full border-b border-white/5">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -133,6 +179,8 @@ export default function Home() {
               src="/vt_new_logo_bg.png"
               alt="Visual Time Logo"
               fill
+              priority
+              loading="eager"
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-contain p-8 md:p-16 group-hover:scale-105 transition-transform duration-700"
             />
@@ -173,9 +221,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: "LED Screen Rental", desc: "High-resolution indoor and outdoor LED video walls for cinematic clarity.", img: "/eurokids.jpeg" },
-              { title: "Corporate Events", desc: "Professional management for conferences, launches, and gala celebrations.", img: "/summit-main.jpeg" },
-              { title: "Technical Production", desc: "End-to-end AV, lighting, and sound for seamless event execution.", img: "/marvel-awards.jpeg" }
+              { num: "01", title: "LED Screen Rental", desc: "High-resolution indoor and outdoor LED video walls for cinematic clarity at your launch, concert, or conference." },
+              { num: "02", title: "Corporate Events", desc: "Professional technical production management for conferences, medical summits, product launches, and gala celebrations." },
+              { num: "03", title: "Technical Production", desc: "Bespoke end-to-end sound reinforcement, stage lighting, and professional AV rigging for seamless event execution." }
             ].map((service, idx) => (
               <motion.div
                 key={service.title}
@@ -185,17 +233,25 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: idx * 0.2 }}
                 className="cursor-pointer h-full"
               >
-                <TiltCard className="group relative overflow-hidden rounded-2xl aspect-[3/4] h-full w-full">
-                  <div className="absolute flex inset-0 z-0">
-                    <Image src={service.img} alt={service.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transform group-hover:scale-110 transition-transform duration-1000 ease-out" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-background via-brand-background/20 to-transparent"></div>
-                  </div>
-                  <div className="absolute inset-0 z-10 flex flex-col justify-end p-8 border border-white/5 rounded-2xl group-hover:border-brand-secondary/40 transition-colors duration-500">
-                    <h3 className="font-serif text-2xl text-brand-text-primary mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">{service.title}</h3>
-                    <p className="text-brand-text-secondary opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100 mb-6">{service.desc}</p>
-                    <Link href="/services" className="text-sm text-brand-secondary uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">Explore &rarr;</Link>
-                  </div>
-                </TiltCard>
+                <Link href="/services" className="block h-full">
+                  <TiltCard className="group relative overflow-hidden rounded-2xl bg-brand-background/40 p-8 md:p-10 border border-white/5 hover:border-brand-secondary/30 transition-all duration-500 shadow-2xl backdrop-blur-sm flex flex-col justify-between h-full min-h-[300px]">
+                    <div className="flex flex-col">
+                      <span className="text-3xl font-serif text-brand-secondary/40 group-hover:text-brand-secondary transition-colors duration-500 font-bold mb-6 block">
+                        {service.num}
+                      </span>
+                      <h3 className="font-serif text-2xl text-brand-text-primary mb-4 group-hover:text-brand-secondary transition-colors duration-500">
+                        {service.title}
+                      </h3>
+                      <p className="text-brand-text-secondary text-base leading-relaxed">
+                        {service.desc}
+                      </p>
+                    </div>
+                    <div className="mt-8 flex items-center gap-2 text-sm text-brand-secondary/70 group-hover:text-brand-secondary uppercase tracking-wider font-semibold transition-all duration-500">
+                      <span>Explore Service</span>
+                      <span className="transform group-hover:translate-x-2 transition-transform duration-500">&rarr;</span>
+                    </div>
+                  </TiltCard>
+                </Link>
               </motion.div>
             ))}
           </div>

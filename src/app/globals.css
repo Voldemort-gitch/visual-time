@@ -13,43 +13,122 @@
   --font-serif: var(--font-space-grotesk);
 }
 
-/* Color Presets for our Real-Time LED Stage Lighting System */
-:root, :root[data-stage-light="gold"] {
-  --color-brand-secondary: #F59E0B; /* Gala Gold */
-  --color-brand-accent: #D97706;    /* Deep Amber */
-  --color-brand-background: #030712; /* Rich Midnight Navy-Slate */
-  --color-brand-surface: #0B0F19;    /* Dark Navy-Slate */
-  --stage-glow-color: 245, 158, 11;
-}
-
-:root[data-stage-light="cyber"] {
-  --color-brand-secondary: #00FFFF; /* Cyber Neon Teal */
-  --color-brand-accent: #8B5CF6;    /* Electric Violet */
-  --color-brand-background: #050B14; /* Deep Tech Blue */
-  --color-brand-surface: #0C1524;    /* Cyber Dark Slate */
-  --stage-glow-color: 0, 255, 255;
-}
-
-:root[data-stage-light="crimson"] {
-  --color-brand-secondary: #EF4444; /* Neon Crimson */
-  --color-brand-accent: #B91C1C;    /* Concert Ruby Red */
-  --color-brand-background: #0A0202; /* Concert Obsidian Charcoal */
-  --color-brand-surface: #140808;    /* Crimson Surface */
-  --stage-glow-color: 239, 68, 68;
+/* Color Presets for our Real-Time LED Stage Lighting System (Permanently Locked to Cyber Cyan) */
+:root {
+  --color-brand-secondary: #00F0FF; /* Cyber Neon Cyan */
+  --color-brand-accent: #0891b2;    /* Electric Tech Cyan */
+  --color-brand-background: #000000; /* Absolute Pitch Black */
+  --color-brand-surface: #080808;    /* Ultra Dark Charcoal Surface */
+  --stage-glow-color: 0, 240, 255;
 }
 
 body {
   background: var(--color-brand-background);
-  background-image: 
-    radial-gradient(at 0% 0%, rgba(var(--stage-glow-color), 0.06) 0, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(var(--stage-glow-color), 0.05) 0, transparent 50%),
-    radial-gradient(at 50% 100%, rgba(var(--stage-glow-color), 0.04) 0, transparent 50%);
-  background-attachment: fixed;
   color: var(--color-brand-text-primary);
   font-family: var(--font-sans), sans-serif;
   overflow-x: hidden;
-  /* Smoothly fade colors when stage lighting preset changes */
-  transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1), background-image 0.8s ease, color 0.8s ease;
+}
+
+/* Stage Dust / Floating LED Sparks Animation Overlay */
+.stage-sparks {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.stage-spark {
+  position: absolute;
+  bottom: -20px;
+  background: rgba(var(--stage-glow-color), 0.7);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 10px rgba(var(--stage-glow-color), 0.8), 
+    0 0 20px rgba(var(--stage-glow-color), 0.4);
+  animation: spark-float 20s infinite linear;
+  will-change: transform, opacity;
+}
+
+.stage-spark-1 {
+  left: 8%;
+  width: 4px;
+  height: 4px;
+  animation-duration: 22s;
+  animation-delay: 0s;
+}
+
+.stage-spark-2 {
+  left: 26%;
+  width: 6px;
+  height: 6px;
+  animation-duration: 28s;
+  animation-delay: -5s;
+}
+
+.stage-spark-3 {
+  left: 42%;
+  width: 3px;
+  height: 3px;
+  animation-duration: 18s;
+  animation-delay: -2s;
+}
+
+.stage-spark-4 {
+  left: 58%;
+  width: 5px;
+  height: 5px;
+  animation-duration: 32s;
+  animation-delay: -10s;
+}
+
+.stage-spark-5 {
+  left: 72%;
+  width: 4px;
+  height: 4px;
+  animation-duration: 25s;
+  animation-delay: -7s;
+}
+
+.stage-spark-6 {
+  left: 88%;
+  width: 6px;
+  height: 6px;
+  animation-duration: 30s;
+  animation-delay: -3s;
+}
+
+.stage-spark-7 {
+  left: 18%;
+  width: 5px;
+  height: 5px;
+  animation-duration: 26s;
+  animation-delay: -12s;
+}
+
+.stage-spark-8 {
+  left: 78%;
+  width: 3px;
+  height: 3px;
+  animation-duration: 20s;
+  animation-delay: -15s;
+}
+
+@keyframes spark-float {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.8);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.65;
+  }
+  85% {
+    opacity: 0.65;
+  }
+  100% {
+    transform: translateY(-112vh) translateX(60px) scale(1.2);
+    opacity: 0;
+  }
 }
 
 /* Floating/Breathing Ambient Orbs */
@@ -71,12 +150,10 @@ body {
 
 .animate-orb-breath-1 {
   animation: orb-breath 22s infinite alternate ease-in-out;
-  transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .animate-orb-breath-2 {
   animation: orb-breath 28s infinite alternate-reverse ease-in-out;
-  transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .bg-mesh-animate {
@@ -190,4 +267,29 @@ body {
   text-shadow: 
     0 0 16px rgba(var(--stage-glow-color), 0.8), 
     0 0 32px rgba(var(--stage-glow-color), 0.4);
+}
+
+/* Animated LED Stage Border Glow */
+.led-border-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 9999; /* Sit on top of everything to frame the screen */
+  pointer-events: none; /* Let clicks pass through */
+  border: 1px solid rgba(var(--stage-glow-color), 0.3);
+  animation: border-pulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes border-pulse {
+  0% { 
+    box-shadow: 
+      inset 0 0 20px rgba(var(--stage-glow-color), 0.05),
+      0 0 10px rgba(var(--stage-glow-color), 0.1); 
+    border-color: rgba(var(--stage-glow-color), 0.15); 
+  }
+  100% { 
+    box-shadow: 
+      inset 0 0 50px rgba(var(--stage-glow-color), 0.25),
+      0 0 20px rgba(var(--stage-glow-color), 0.3); 
+    border-color: rgba(var(--stage-glow-color), 0.5); 
+  }
 }
