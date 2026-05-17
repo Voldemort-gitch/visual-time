@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
+import { TiltCard } from '@/components/ui/TiltCard';
 
 export default function Home() {
   const { scrollY } = useScroll();
@@ -182,17 +183,19 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.2 }}
-                className="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer"
+                className="cursor-pointer h-full"
               >
-                <div className="absolute flex inset-0 z-0">
-                  <Image src={service.img} alt={service.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transform group-hover:scale-110 transition-transform duration-1000 ease-out" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-background via-brand-background/20 to-transparent"></div>
-                </div>
-                <div className="absolute inset-0 z-10 flex flex-col justify-end p-8 border border-white/5 rounded-2xl group-hover:border-brand-secondary/40 transition-colors duration-500">
-                  <h3 className="font-serif text-2xl text-brand-text-primary mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">{service.title}</h3>
-                  <p className="text-brand-text-secondary opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100 mb-6">{service.desc}</p>
-                  <Link href="/services" className="text-sm text-brand-secondary uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">Explore &rarr;</Link>
-                </div>
+                <TiltCard className="group relative overflow-hidden rounded-2xl aspect-[3/4] h-full w-full">
+                  <div className="absolute flex inset-0 z-0">
+                    <Image src={service.img} alt={service.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transform group-hover:scale-110 transition-transform duration-1000 ease-out" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-background via-brand-background/20 to-transparent"></div>
+                  </div>
+                  <div className="absolute inset-0 z-10 flex flex-col justify-end p-8 border border-white/5 rounded-2xl group-hover:border-brand-secondary/40 transition-colors duration-500">
+                    <h3 className="font-serif text-2xl text-brand-text-primary mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">{service.title}</h3>
+                    <p className="text-brand-text-secondary opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100 mb-6">{service.desc}</p>
+                    <Link href="/services" className="text-sm text-brand-secondary uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">Explore &rarr;</Link>
+                  </div>
+                </TiltCard>
               </motion.div>
             ))}
           </div>
@@ -249,23 +252,44 @@ export default function Home() {
       </section>
 
       {/* Client Marquee Section */}
-      <section className="relative py-20 bg-brand-surface/20 border-y border-white/5 overflow-hidden">
+      <section className="relative py-24 bg-brand-surface/20 border-y border-white/5 overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 text-center mb-16 relative z-20">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="font-serif text-3xl md:text-4xl lg:text-5xl text-brand-text-primary mb-4"
+          >
+            Our <span className="text-gradient-gold-amber text-glow-gold">Clients</span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-brand-text-secondary uppercase tracking-[0.2em] text-xs"
+          >
+            Trusted by Chennai&apos;s Leading Organizations &amp; Institutions
+          </motion.p>
+        </div>
+
         {/* Subtle fading mask overlays on both sides */}
         <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-brand-background to-transparent z-10 pointer-events-none"></div>
         <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-brand-background to-transparent z-10 pointer-events-none"></div>
 
-        <div className="flex whitespace-nowrap">
+        <div className="flex w-full overflow-hidden relative z-10">
           <motion.div
-            animate={{ x: [0, -1000] }}
+            animate={{ x: ["0%", "-50%"] }}
             transition={{
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 25,
+                duration: 35,
                 ease: "linear",
               },
             }}
-            className="flex gap-20 items-center px-10"
+            className="flex gap-20 items-center whitespace-nowrap w-max group/marquee"
           >
             {[
               "Sun pharmaceuticals Ltd",
@@ -273,7 +297,7 @@ export default function Home() {
               "Madras Cricket Club",
               "Tata Motors Ltd",
               "Indo - Amercian Association commitee (IACC)",
-              "Indian Show Federation",
+              "Indian Shoe Federation",
               "VNC steel Disturbutors",
               "Ministry of Small,Medium, Enterprises.(MSME)",
               "Euro Kids School",
@@ -281,7 +305,7 @@ export default function Home() {
             ].map((client) => (
               <span
                 key={client}
-                className="text-2xl md:text-3xl font-serif text-brand-text-secondary/50 hover:text-brand-secondary transition-colors duration-300 cursor-default"
+                className="text-2xl md:text-3xl font-serif opacity-50 group-hover/marquee:opacity-20 hover:!opacity-100 transition-all duration-300 cursor-default client-hover-glow"
               >
                 {client}
               </span>
@@ -293,7 +317,7 @@ export default function Home() {
               "Madras Cricket Club",
               "Tata Motors Ltd",
               "Indo - Amercian Association commitee (IACC)",
-              "Indian Show Federation",
+              "Indian Shoe Federation",
               "VNC steel Disturbutors",
               "Ministry of Small,Medium, Enterprises.(MSME)",
               "Euro Kids School",
@@ -301,7 +325,7 @@ export default function Home() {
             ].map((client) => (
               <span
                 key={`${client}-clone`}
-                className="text-2xl md:text-3xl font-serif text-brand-text-secondary/50 hover:text-brand-secondary transition-colors duration-300 cursor-default"
+                className="text-2xl md:text-3xl font-serif opacity-50 group-hover/marquee:opacity-20 hover:!opacity-100 transition-all duration-300 cursor-default client-hover-glow"
               >
                 {client}
               </span>

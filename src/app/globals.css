@@ -2,10 +2,10 @@
 
 @theme {
   --color-brand-primary: #FFFFFF;
-  --color-brand-secondary: #F59E0B; /* Vibrant Luxury Gold */
-  --color-brand-accent: #D97706;    /* Deep Electric Amber */
-  --color-brand-background: #030712; /* Exquisite Midnight Slate-Navy (not pitch black!) */
-  --color-brand-surface: #0B0F19;    /* Rich Dark Navy-Slate */
+  --color-brand-secondary: var(--color-brand-secondary);
+  --color-brand-accent: var(--color-brand-accent);
+  --color-brand-background: var(--color-brand-background);
+  --color-brand-surface: var(--color-brand-surface);
   --color-brand-text-primary: #F9FAFB;
   --color-brand-text-secondary: #9CA3AF;
 
@@ -13,16 +13,43 @@
   --font-serif: var(--font-space-grotesk);
 }
 
+/* Color Presets for our Real-Time LED Stage Lighting System */
+:root, :root[data-stage-light="gold"] {
+  --color-brand-secondary: #F59E0B; /* Gala Gold */
+  --color-brand-accent: #D97706;    /* Deep Amber */
+  --color-brand-background: #030712; /* Rich Midnight Navy-Slate */
+  --color-brand-surface: #0B0F19;    /* Dark Navy-Slate */
+  --stage-glow-color: 245, 158, 11;
+}
+
+:root[data-stage-light="cyber"] {
+  --color-brand-secondary: #00FFFF; /* Cyber Neon Teal */
+  --color-brand-accent: #8B5CF6;    /* Electric Violet */
+  --color-brand-background: #050B14; /* Deep Tech Blue */
+  --color-brand-surface: #0C1524;    /* Cyber Dark Slate */
+  --stage-glow-color: 0, 255, 255;
+}
+
+:root[data-stage-light="crimson"] {
+  --color-brand-secondary: #EF4444; /* Neon Crimson */
+  --color-brand-accent: #B91C1C;    /* Concert Ruby Red */
+  --color-brand-background: #0A0202; /* Concert Obsidian Charcoal */
+  --color-brand-surface: #140808;    /* Crimson Surface */
+  --stage-glow-color: 239, 68, 68;
+}
+
 body {
   background: var(--color-brand-background);
   background-image: 
-    radial-gradient(at 0% 0%, rgba(245, 158, 11, 0.07) 0, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(217, 119, 6, 0.07) 0, transparent 50%),
-    radial-gradient(at 50% 100%, rgba(245, 158, 11, 0.04) 0, transparent 50%);
+    radial-gradient(at 0% 0%, rgba(var(--stage-glow-color), 0.06) 0, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(var(--stage-glow-color), 0.05) 0, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(var(--stage-glow-color), 0.04) 0, transparent 50%);
   background-attachment: fixed;
   color: var(--color-brand-text-primary);
   font-family: var(--font-sans), sans-serif;
   overflow-x: hidden;
+  /* Smoothly fade colors when stage lighting preset changes */
+  transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1), background-image 0.8s ease, color 0.8s ease;
 }
 
 /* Floating/Breathing Ambient Orbs */
@@ -34,7 +61,7 @@ body {
   50% {
     transform: translate(40px, -30px) scale(1.15);
     filter: blur(140px) brightness(1.3);
-    background-color: rgba(217, 119, 6, 0.05); /* Shifting color to deep amber */
+    background-color: rgba(var(--stage-glow-color), 0.06);
   }
   100% {
     transform: translate(-30px, 20px) scale(0.9);
@@ -44,10 +71,12 @@ body {
 
 .animate-orb-breath-1 {
   animation: orb-breath 22s infinite alternate ease-in-out;
+  transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .animate-orb-breath-2 {
   animation: orb-breath 28s infinite alternate-reverse ease-in-out;
+  transition: background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .bg-mesh-animate {
@@ -57,7 +86,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.03), transparent);
+  background: radial-gradient(circle at 50% 50%, rgba(var(--stage-glow-color), 0.02), transparent);
   filter: blur(100px);
   animation: mesh-float 20s infinite alternate ease-in-out;
 }
@@ -66,18 +95,18 @@ body {
   0% {
     transform: translate(-10%, -10%) scale(1);
   }
-
   100% {
     transform: translate(10%, 10%) scale(1.2);
   }
 }
 
 .glass-card {
-  background: rgba(11, 15, 25, 0.7);
+  background: rgba(var(--color-brand-surface), 0.6);
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
   border: 1px solid rgba(255, 255, 255, 0.04);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  transition: background-color 0.8s ease, border-color 0.8s ease, box-shadow 0.8s ease;
 }
 
 .neon-border-hover {
@@ -102,29 +131,63 @@ body {
 }
 
 .text-glow-gold {
-  text-shadow: 0 0 10px rgba(245, 158, 11, 0.4), 0 0 20px rgba(245, 158, 11, 0.15);
+  text-shadow: 0 0 10px rgba(var(--stage-glow-color), 0.4), 0 0 20px rgba(var(--stage-glow-color), 0.15);
+  transition: text-shadow 0.8s ease;
+}
+
+/* Polished Liquid Metallic Sheen Sweeper */
+@keyframes liquid-metallic-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
 
 .text-gradient-gold-amber {
-  background: linear-gradient(135deg, var(--color-brand-secondary) 15%, var(--color-brand-accent) 85%);
+  background: linear-gradient(
+    90deg,
+    var(--color-brand-secondary) 0%,
+    var(--color-brand-accent) 25%,
+    #FFFFFF 50%,
+    var(--color-brand-accent) 75%,
+    var(--color-brand-secondary) 100%
+  );
+  background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: liquid-metallic-shimmer 6s linear infinite;
 }
 
 .bento-card {
   background: var(--color-brand-surface);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1), background-color 0.8s ease, border-color 0.8s ease;
 }
 
 .bento-card:hover {
   transform: translateY(-5px);
   border-color: var(--color-brand-secondary);
-  box-shadow: 0 0 30px rgba(245, 158, 11, 0.1);
+  box-shadow: 0 0 30px rgba(var(--stage-glow-color), 0.1);
 }
 
 ::selection {
   background: var(--color-brand-secondary);
   color: #000000;
+}
+
+.client-hover-glow {
+  color: var(--color-brand-secondary) !important;
+  text-shadow: 
+    0 0 8px rgba(var(--stage-glow-color), 0.45), 
+    0 0 16px rgba(var(--stage-glow-color), 0.2);
+  transition: color 0.3s ease, text-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+.client-hover-glow:hover {
+  text-shadow: 
+    0 0 16px rgba(var(--stage-glow-color), 0.8), 
+    0 0 32px rgba(var(--stage-glow-color), 0.4);
 }

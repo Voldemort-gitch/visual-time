@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
+import { TiltCard } from '@/components/ui/TiltCard';
 
 export default function ServicesPage() {
   const services = [
@@ -60,7 +61,7 @@ export default function ServicesPage() {
             transition={{ duration: 0.8 }}
             className={`flex flex-col gap-12 lg:gap-24 items-center ${idx % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}
           >
-            <div className="w-full lg:w-1/2 relative aspect-[4/3] rounded-2xl overflow-hidden group glass-card">
+            <TiltCard className="w-full lg:w-1/2 relative aspect-[4/3] rounded-2xl overflow-hidden group glass-card cursor-pointer">
               <Image 
                 src={service.image} 
                 alt={service.title} 
@@ -70,7 +71,7 @@ export default function ServicesPage() {
                 className="p-8 border border-white/5 rounded-xl bg-brand-surface hover:border-brand-secondary/30 transition-all duration-300"
               />
               <div className="absolute inset-0 border border-white/10 rounded-2xl z-10 pointer-events-none"></div>
-            </div>
+            </TiltCard>
             
             <div className="w-full lg:w-1/2 flex flex-col justify-center">
               <h2 className="font-serif text-3xl md:text-4xl text-brand-text-primary mb-6">{service.title}</h2>
